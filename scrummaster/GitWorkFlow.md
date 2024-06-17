@@ -1,0 +1,30 @@
+1. Fork o Repositorio
+
+2. Clonar o repositório do seu próprio GitHub
+
+- git clone git@github.com:duccini/equipe02.git (exemplo)
+
+3. Entrar na pasta 'equipe02' e configurar upstream
+
+- git remote add upstream https://github.com/codigocerto/equipe02.git
+
+4. Sincronizar com develop
+
+- git fetch upstream
+- git checkout develop
+- git merge upstream/develop
+- git push origin develop
+
+5. Excluir uma branch
+
+- git branch -D <nome-branch>
+
+6. Sincronizar com a main do Respositório do Código Certo (estando na main local)
+
+- git pull upstream main
+- git add .
+- git commit -m "message"
+- git push origin main
+
+7. Enviar Pull Request
+   Selecionar Pull Request "across fork"
