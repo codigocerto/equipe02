@@ -5,7 +5,8 @@
 - git clone git@github.com:duccini/equipe02.git (exemplo)
 
 3. Entrar na pasta 'equipe02' e configurar upstream
-   git remote add upstream https://github.com/codigocerto/equipe02.git
+
+- git remote add upstream https://github.com/codigocerto/equipe02.git
 
 4. Sincronizar com develop
 
