@@ -15,3 +15,9 @@
 
 5. Excluir uma branch
    git branch -D <nome-branch>
+
+6. Sincronizar com a main do Respositório do Código Certo (estando na main local)
+   git pull upstream main
+   git add .
+   git commit -m "message"
+   git push origin main
