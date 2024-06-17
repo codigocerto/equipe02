@@ -21,3 +21,6 @@
    git add .
    git commit -m "message"
    git push origin main
+
+7. Enviar Pull Request
+   Selecionar Pull Request "across fork"
