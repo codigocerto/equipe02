@@ -1,0 +1,77 @@
+# version: '3.9'
+# services:
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - '3000:3000'
+#     environment:
+#       - DATABASE_HOST=localhost
+#       - DATABASE_PORT=5432
+#       - DATABASE_USER=adminer
+#       - DATABASE_PASSWORD=password
+#       - DATABASE_NAME=codigoCerto
+#       - DATABASE_SINCRONIZE=true
+#       - PORT=3000
+#     depends_on:
+#       - db
+#     platform: linux/amd64
+#     networks:
+#       - my_bridge_network
+
+#   db:
+#     image: postgres:latest
+#     ports:
+#       - '5432:5432'
+#     environment:
+#       POSTGRES_USER: adminer
+#       POSTGRES_PASSWORD: password
+#       POSTGRES_DB: codigoCerto
+#     platform: linux/amd64
+#     networks:
+#       - my_bridge_network
+
+#   adminer:
+#     image: adminer
+#     ports:
+#       - '8080:8080'
+#     depends_on:
+#       - db
+#     networks:
+#       - my_bridge_network
+
+# networks:
+#   my_bridge_network:
+#     driver: bridge
+
+version: '3.9'
+services:
+  nestapp:
+    container_name: nestapp
+    # image: codigocerto/nestapp:1.0.0
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_TYPE=postgres
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_DB=postgres
+      - PG_PORT=5432
+      - PG_HOST=db
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata: {}
