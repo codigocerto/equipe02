@@ -1,0 +1,34 @@
+.headerContainer {
+  width: 100%;
+  height: 3.75rem;
+  background-color: #262626;
+  color: var(--gray-100);
+}
+
+.headerContent {
+  max-width: 1280px;
+  height: 3.75rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoImg {
+  width: 100%;
+}
+
+.linkContent {
+  font: 400 1.25rem "Noto Sans", sans-serif;
+}
+
+.linkContent a {
+  padding-inline: 1rem;
+  padding-block: 0.625rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.linkContent a:hover {
+  background-color: var(--gray-700);
+}

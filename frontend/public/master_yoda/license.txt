@@ -1,0 +1,11 @@
+Model Information:
+* title:	Master Yoda
+* source:	https://sketchfab.com/3d-models/master-yoda-2fb5a943b7b24ac0b195a74d1a3c6c8d
+* author:	blazer003 (https://sketchfab.com/blazer003)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Master Yoda" (https://sketchfab.com/3d-models/master-yoda-2fb5a943b7b24ac0b195a74d1a3c6c8d) by blazer003 (https://sketchfab.com/blazer003) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
