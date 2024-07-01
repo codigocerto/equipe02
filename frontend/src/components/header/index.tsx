@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { FaGithub } from "react-icons/fa6";
+
 import logoImg from "../../../public/images/logo.png";
 
 import styles from "./styles.module.css";
@@ -14,19 +16,23 @@ const Header = () => {
             src={logoImg}
             alt="Logo do CodigoCerto"
             className={styles.logoImg}
-            width={60}
+            width={75}
             height={50}
             quality={100}
             priority
           />
         </Link>
-        <nav className={styles.linkContent}>
-          <Link href="/networking">Networking</Link>
+        <nav className={styles.navContent}>
           <Link href="/">Projetos</Link>
           <Link href="/">Mentoria</Link>
-          <Link href="/">Sobre</Link>
-          <Link href="/">Login</Link>
+          <Link href="/networking">Networking</Link>
         </nav>
+        <div className={styles.loginButton}>
+          <Link href="/">
+            <FaGithub size={26} />
+            <span>Login</span>
+          </Link>
+        </div>
       </div>
     </header>
   );

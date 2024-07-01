@@ -20,14 +20,18 @@ const HeroSection = () => {
           </div>
         </section>
 
-        <Image
-          src={yodaImage}
-          alt="Imagem do Yoda"
-          width={380}
-          height={500}
-          quality={100}
-          priority
-        />
+        <section className={styles.imageSection}>
+          <Image
+            src={yodaImage}
+            alt="Imagem do Yoda"
+            className={styles.yodaImage}
+            width={380}
+            height={500}
+            quality={100}
+            priority
+          />
+          <div className={styles.elipse}></div>
+        </section>
       </div>
     </div>
   );

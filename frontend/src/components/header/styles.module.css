@@ -1,34 +1,39 @@
 .headerContainer {
   width: 100%;
-  height: 3.75rem;
-  background-color: #262626;
-  color: var(--gray-100);
+  height: 5rem;
+  background-color: #000000;
+  color: var(--gray-400);
+  font: 400 1.5rem "Noto Sans", sans-serif;
 }
 
 .headerContent {
   max-width: 1280px;
-  height: 3.75rem;
+  height: 5rem;
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #ffffff;
 }
 
 .logoImg {
   width: 100%;
 }
 
-.linkContent {
-  font: 400 1.25rem "Noto Sans", sans-serif;
+.navContent {
+  display: flex;
+  gap: 1rem;
 }
 
-.linkContent a {
+.loginButton {
+  background-color: var(--gray-700);
   padding-inline: 1rem;
   padding-block: 0.625rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
+  border-radius: 1rem;
 }
 
-.linkContent a:hover {
-  background-color: var(--gray-700);
+.loginButton a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
