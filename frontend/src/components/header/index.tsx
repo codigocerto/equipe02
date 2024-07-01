@@ -21,7 +21,7 @@ const Header = () => {
           />
         </Link>
         <nav className={styles.linkContent}>
-          <Link href="/">Vagas</Link>
+          <Link href="/networking">Networking</Link>
           <Link href="/">Projetos</Link>
           <Link href="/">Mentoria</Link>
           <Link href="/">Sobre</Link>
