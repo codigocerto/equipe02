@@ -1,7 +1,10 @@
 import Image from "next/image";
 
-import HeroSection from "@/components/hero";
-import CardParaQuem from "./components/cardParaQuem";
+import HeroSection from "@/components/Hero";
+import Container from "@/components/Container";
+import CardParaQuem from "./components/CardParaQuem";
+import StackCard from "./components/StackCard";
+import TechCard from "./components/StackCard/TechCard";
 
 import estudanteImg from "../../../public/images/estudante.png";
 import desenvolvedorImg from "../../../public/images/desenvolvedor.png";
@@ -18,7 +21,7 @@ export default function Networking() {
     <main>
       <HeroSection />
       <div style={{ backgroundColor: "#141414" }}>
-        <div className={styles.container}>
+        <Container>
           <h2 className={styles.titleParaQuem}>Para quem é a comunidade</h2>
           <section className={styles.cardParaQuemSection}>
             <CardParaQuem
@@ -113,7 +116,60 @@ export default function Networking() {
           </a>
 
           <h2 className={styles.stackTitle}>Encontre o seu grupo</h2>
-        </div>
+          <section className={styles.stackCardSection}>
+            <StackCard stackCardTitle="Frontend">
+              <TechCard techTitle="HTML" bgColor="#E34f26" />
+              <TechCard techTitle="CSS" bgColor="#1572b6" />
+              <TechCard techTitle="JavaScript" bgColor="#f7df1e" />
+              <TechCard techTitle="Angular" bgColor="#dd0031" />
+              <TechCard techTitle="React" bgColor="#61dafb" />
+            </StackCard>
+
+            <StackCard stackCardTitle="Backend">
+              <TechCard techTitle="Node.js" bgColor="#339933" />
+              <TechCard techTitle="Express" bgColor="#000000" />
+              <TechCard techTitle="Django" bgColor="#092e20" />
+            </StackCard>
+
+            <StackCard stackCardTitle="Fullstack">
+              <TechCard techTitle="Java" bgColor="#007396" />
+              <TechCard techTitle="Angular" bgColor="#DD0031" />
+              <TechCard techTitle="Python" bgColor="#3776ab" />
+              <TechCard techTitle="React" bgColor="#61dafb" />
+            </StackCard>
+
+            <StackCard stackCardTitle="DevOps">
+              <TechCard techTitle="Docker" bgColor="#2496ed" />
+              <TechCard techTitle="Kubernetes" bgColor="#326ce5" />
+            </StackCard>
+
+            <StackCard stackCardTitle="UX & UI">
+              <TechCard techTitle="Figma" bgColor="#f24e1e" />
+            </StackCard>
+
+            <StackCard stackCardTitle="Mobile">
+              <TechCard techTitle="React Native" bgColor="#61dafb" />
+              <TechCard techTitle="Swift" bgColor="#fa7343" />
+              <TechCard techTitle="Flutter" bgColor="#02569b" />
+            </StackCard>
+
+            <StackCard stackCardTitle="Dados">
+              <TechCard techTitle="Python" bgColor="#3776ab" />
+              <TechCard techTitle="Pandas" bgColor="#150458" />
+              <TechCard techTitle="R" bgColor="#276dc3" />
+              <TechCard techTitle="TensorFlow" bgColor="#ff6f00" />
+              <TechCard techTitle="PyTorch" bgColor="#ee4c2c" />
+            </StackCard>
+
+            <StackCard stackCardTitle="QA">
+              <TechCard techTitle="Jest" bgColor="#27ce0c" />
+              <TechCard techTitle="Cypress" bgColor="#17202c" />
+            </StackCard>
+          </section>
+
+          <h2 className={styles.titleMuitoMais}>E muito mais!</h2>
+          <section className={styles.sectionMuitoMais}></section>
+        </Container>
       </div>
     </main>
   );

@@ -1,8 +1,3 @@
-.backgroundColor {
-  background-color: var(--gray-100);
-  width: 100%;
-}
-
 .cardsSection {
   display: flex;
   flex-direction: column;

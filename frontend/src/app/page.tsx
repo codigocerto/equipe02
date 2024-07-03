@@ -1,5 +1,5 @@
-import HeroSection from "@/components/hero";
-import CardsSection from "@/components/cardSection";
+import HeroSection from "@/components/Hero";
+import CardsSection from "@/components/CardSection";
 
 import styles from "./page.module.css";
 

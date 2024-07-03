@@ -1,8 +1,3 @@
-.container {
-  max-width: 1280px;
-  margin-inline: auto;
-}
-
 .titleParaQuem {
   font: 700 3rem "Inter", sans-serif;
   text-align: center;
@@ -128,4 +123,26 @@
   background: linear-gradient(90deg, #e2e8f0 0%, #35394c 100%);
   color: transparent;
   background-clip: text;
+}
+
+.stackCardSection {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 4.5rem;
+  gap: 2rem;
+}
+
+.titleMuitoMais {
+  font: 700 3rem "Inter", sans-serif;
+  text-align: center;
+  background: linear-gradient(
+    90.21deg,
+    #e63939 0.05%,
+    #b72525 39.61%,
+    #790a0a 91.8%
+  );
+  color: transparent;
+  background-clip: text;
+  margin-top: 9rem;
+  margin-bottom: 4.5rem;
 }

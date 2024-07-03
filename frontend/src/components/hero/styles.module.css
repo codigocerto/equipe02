@@ -1,8 +1,4 @@
-.backgroundColor {
-  background: linear-gradient(164.48deg, #000000 10.65%, #141414 69.2%);
-}
-
-.containerHero {
+.heroContent {
   display: flex;
   justify-content: space-between;
   align-items: center;

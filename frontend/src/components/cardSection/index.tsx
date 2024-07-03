@@ -1,10 +1,10 @@
-import Card from "../card";
+import Card from "../Card";
 
 import styles from "./styles.module.css";
 
 const CardsSection = () => {
   return (
-    <div className={styles.backgroundColor}>
+    <div style={{ backgroundColor: "#f9f9f9" }}>
       <section className={styles.cardsSection}>
         <h2>Juntos Somos Mais Fortes</h2>
         <div className={styles.cardsGrid}>

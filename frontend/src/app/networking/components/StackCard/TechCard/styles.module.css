@@ -1,0 +1,8 @@
+.techCard {
+  text-align: center;
+  padding-block: 0.2rem;
+  padding-inline: 0.4rem;
+  border-radius: 0.25rem;
+  font: 700 1rem "Inter", sans-serif;
+  color: #ffffff;
+}

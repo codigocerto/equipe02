@@ -5,8 +5,12 @@ import styles from "./styles.module.css";
 
 const HeroSection = () => {
   return (
-    <div className={styles.backgroundColor}>
-      <div className={styles.containerHero}>
+    <div
+      style={{
+        background: "linear-gradient(164.48deg, #000000 10.65%, #141414 69.2%)",
+      }}
+    >
+      <div className={styles.heroContent}>
         <section className={styles.frame}>
           <div className={styles.frameTitle}>
             <h1 className={styles.title}>Alavancar sua carreira, você irá!</h1>
