@@ -11,6 +11,10 @@
   --gray-700: #363636;
 }
 
+main {
+  width: 100%;
+}
+
 a {
   color: inherit;
   text-decoration: none;

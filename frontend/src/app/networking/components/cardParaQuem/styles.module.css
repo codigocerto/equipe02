@@ -1,0 +1,22 @@
+.cardParaQuem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 280px;
+  height: 375px;
+  border-radius: 1.5rem;
+  background: radial-gradient(
+    53.57% 49.87% at 5.54% 0%,
+    #35394c 0%,
+    #141414 100%
+  );
+  border: 1px solid linear-gradient(150.58deg, #4f4f4f 0%, #141414 113.27%);
+  box-shadow: 12px 12px 20px 0px #000000;
+}
+
+.cardParaQuem h3 {
+  color: #e2e8f0;
+  font: 700 2rem "Inter", sans-serif;
+}

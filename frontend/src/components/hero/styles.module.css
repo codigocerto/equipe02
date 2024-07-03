@@ -19,9 +19,7 @@
 }
 
 .title {
-  font-family: "Inter", sans-serif;
-  font-size: 48px;
-  font-weight: 700;
+  font: 700 3rem "Inter", sans-serif;
   line-height: 56px;
   text-align: left;
   background: linear-gradient(
@@ -45,9 +43,7 @@
 
 .paragraph {
   color: #e2e8f0;
-  font-family: "Noto Sans", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
+  font: 400 1.5rem "Noto Sans", sans-serif;
   line-height: 48px;
   text-align: left;
 }
