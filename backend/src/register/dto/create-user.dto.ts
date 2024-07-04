@@ -1,10 +1,7 @@
+import { UUID } from 'crypto';
+
 export class CreateUserDto {
-  /**
-   * O nome será utilizado para qualquer coisa (Perfil, Home Page, etc) que precise exibir
-   * informações da pessoa conectada.
-   * @example Paulo Salvatore
-   */
-  name: string;
+  readonly id?: UUID;
 
   /**
    * O e-mail é necessário apra o login, mas não necessariamente precisa ser o mesmo e-mail da
@@ -18,5 +15,11 @@ export class CreateUserDto {
    * é necessário informar uma senha.
    * @example 123@abc
    */
-  password?: string;
+  readonly password: string;
+
+  constructor(id: UUID, email: string, password: string) {
+    this.id = id;
+    this.email = email;
+    this.password = password;
+  }
 }
