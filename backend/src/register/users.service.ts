@@ -2,6 +2,7 @@ import {
   ConflictException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -67,5 +68,14 @@ export class UsersService {
         email: userEmail,
       },
     });
+  }
+
+  async validateUser(email: string, password: string): Promise<User> {
+    const user = await this.findByEmail(email);
+
+    if (!user || user.password !== password) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+    return user;
   }
 }
