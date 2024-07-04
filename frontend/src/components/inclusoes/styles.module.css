@@ -1,0 +1,73 @@
+.section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 72px 0;
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+  }
+  
+  .imageWrapper {
+    display: grid;
+    grid-template-areas:
+      "image1 image2"
+      "image3 image4";
+    gap: 20px;
+  }
+  
+  .image1 {
+    grid-area: image1;
+    width: 100%;
+    height: auto;
+  }
+  
+  .image2 {
+    grid-area: image2;
+    width: 100%;
+    height: auto;
+  }
+  
+  .image3 {
+    grid-area: image3;
+    width: 100%;
+    height: auto;
+  }
+  
+  .image4 {
+    grid-area: image4;
+    width: 100%;
+    height: auto;
+  }
+  
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px; /* Aumentar o espaçamento entre os blocos de texto */
+    padding: 0 20px; /* Adicionar padding para afastar o texto das bordas */
+  }
+  
+  .textBlock {
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 36.31px;
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24.2px;
+    text-align: right;
+    color: white;
+  }  

@@ -1,0 +1,45 @@
+.container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 50px;
+}
+
+.header img {
+  max-width: 100px;
+  margin-top: 20px;
+}
+
+.section {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.cardSection {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.diversidadeInclusao, .missao, .eventosWorkshops {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.diversidadeInclusao img, .missao img, .eventosWorkshops img {
+  max-width: 200px;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}

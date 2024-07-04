@@ -1,0 +1,47 @@
+.section {
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: red;
+  text-align: center;
+}
+
+.sectionContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.texts {
+  max-width: 500px;
+  text-align: left;
+}
+
+.texts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.texts li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.texts li .icon {
+  margin-right: 10px;
+}
+
+.image {
+  max-width: 500px;
+  height: auto;
+  margin-left: 20px;
+}
