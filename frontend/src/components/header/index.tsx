@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { FaGithub } from "react-icons/fa6";
 
-import logoImg from "../../../public/images/logo.png";
+import logoImg from "../../../public/images/logo-header.png";
 
 import styles from "./styles.module.css";
 

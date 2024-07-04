@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  height: 12.5rem;
+  background-color: #000000;
+  color: var(--text-color-primary);
+}
+
+.footerContent {
+  height: 12.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.7rem;
+  font: 600 1.25rem "Noto Sans", sans-serif;
+}
+
+.socialLinks {
+  display: flex;
+  color: #e63839;
+  gap: 2.5rem;
+}

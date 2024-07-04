@@ -38,7 +38,7 @@
 }
 
 .paragraph {
-  color: #e2e8f0;
+  color: var(--text-color-primary);
   font: 400 1.5rem "Noto Sans", sans-serif;
   line-height: 48px;
   text-align: left;

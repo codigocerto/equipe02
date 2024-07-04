@@ -1,16 +1,21 @@
 import Image from "next/image";
 
-import HeroSection from "@/components/Hero";
-import Container from "@/components/Container";
-import CardParaQuem from "./components/CardParaQuem";
-import StackCard from "./components/StackCard";
-import TechCard from "./components/StackCard/TechCard";
-
-import estudanteImg from "../../../public/images/estudante.png";
-import desenvolvedorImg from "../../../public/images/desenvolvedor.png";
-import mentorImg from "../../../public/images/mentor.png";
-import notebookImg from "../../../public/images/notebook.png";
-import celularImg from "../../../public/images/celular.png";
+import {
+  HeroSection,
+  Container,
+  CardParaQuem,
+  CardMuitoMais,
+  StackCard,
+  TechCard,
+  estudanteImg,
+  desenvolvedorImg,
+  mentorImg,
+  notebookImg,
+  celularImg,
+  projetosImg,
+  mentoriaImg,
+  reunioesImg,
+} from "./imports";
 
 import { FaDiscord, FaWhatsapp } from "react-icons/fa";
 
@@ -18,9 +23,9 @@ import styles from "./page.module.css";
 
 export default function Networking() {
   return (
-    <main>
+    <>
       <HeroSection />
-      <div style={{ backgroundColor: "#141414" }}>
+      <main style={{ backgroundColor: "#141414" }}>
         <Container>
           <h2 className={styles.titleParaQuem}>Para quem é a comunidade</h2>
           <section className={styles.cardParaQuemSection}>
@@ -168,9 +173,25 @@ export default function Networking() {
           </section>
 
           <h2 className={styles.titleMuitoMais}>E muito mais!</h2>
-          <section className={styles.sectionMuitoMais}></section>
+          <section className={styles.sectionMuitoMais}>
+            <CardMuitoMais
+              srcImg={projetosImg}
+              altImg="Imagem do card projetos"
+              titleCard="Projetos"
+            />
+            <CardMuitoMais
+              srcImg={mentoriaImg}
+              altImg="Imagem do card mentoria"
+              titleCard="Mentoria"
+            />
+            <CardMuitoMais
+              srcImg={reunioesImg}
+              altImg="Imagem do card reuniões"
+              titleCard="Reuniões"
+            />
+          </section>
         </Container>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
