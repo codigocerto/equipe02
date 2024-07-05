@@ -1,13 +1,9 @@
-.backgroundColor {
-  background-color: #141414;
-}
-
-.containerHero {
+.heroContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-inline: auto;
-  min-height: calc(100vh - 3.75rem);
+  min-height: calc(100vh - 5rem);
   max-width: 1280px;
 }
 
@@ -19,12 +15,17 @@
 }
 
 .title {
-  font-family: "Inter", sans-serif;
-  font-size: 48px;
-  font-weight: 700;
+  font: 700 3rem "Inter", sans-serif;
   line-height: 56px;
   text-align: left;
-  color: #19fb96;
+  background: linear-gradient(
+    90.21deg,
+    #e63939 0.05%,
+    #b72525 39.61%,
+    #790a0a 91.8%
+  );
+  color: transparent;
+  background-clip: text;
 }
 
 .frameParagraph {
@@ -37,10 +38,29 @@
 }
 
 .paragraph {
-  color: var(--gray-100);
-  font-family: "Noto Sans", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
+  color: var(--text-color-primary);
+  font: 400 1.5rem "Noto Sans", sans-serif;
   line-height: 48px;
   text-align: left;
+}
+
+.imageSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yodaImage {
+  position: absolute;
+  z-index: 10;
+}
+
+.elipse {
+  width: 224px;
+  height: 310px;
+  transform: rotate(0.099deg);
+  flex-shrink: 0;
+  border-radius: 410px;
+  background-color: #e63939;
+  filter: blur(40px);
 }

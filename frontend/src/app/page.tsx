@@ -1,11 +1,9 @@
-import HeroSection from "@/components/hero";
-import CardsSection from "@/components/cardSection";
-
-import styles from "./page.module.css";
+import HeroSection from "@/components/Hero";
+import CardsSection from "@/components/CardSection";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <HeroSection />
       <CardsSection />
     </main>
