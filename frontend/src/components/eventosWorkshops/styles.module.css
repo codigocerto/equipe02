@@ -1,5 +1,4 @@
 .section {
-  text-align: center;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -16,6 +15,7 @@
 .sectionContent {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 1200px;
 }
@@ -30,14 +30,18 @@
   padding: 0;
 }
 
-.texts li {
+.texts li { /* Textos  */
+  font-size: 18px;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
-.texts li .icon {
+.texts li .icon { /* Icone de Check 'V' */
   margin-right: 10px;
+  width: 12px; 
+  height: 12px; 
 }
 
 .image {

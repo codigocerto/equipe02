@@ -9,7 +9,15 @@ const DiversidadeInclusao = () => {
         <h2 className={styles.title}>Diversidade e Inclusão</h2>
       </div>
       <div className={styles.textContainer}>
-        <p className={styles.paragraph}>Em nossa comunidade, reconhecemos que a diversidade é uma força poderosa que impulsiona a inovação, a criatividade e o progresso.</p>
+        <p className={styles.paragraph}>
+          Em nossa comunidade, reconhecemos que a diversidade é uma força poderosa que impulsiona a
+          inovação, a criatividade e o progresso.
+        </p>
+        <p className={styles.paragraph}>
+          Acreditamos que a diversidade vai além das diferenças óbvias, como raça, gênero ou orientação
+          sexual. Ela engloba uma ampla gama de características, incluindo origem étnica, idade,
+          habilidades físicas e mentais, experiências de vida e perspectivas culturais.
+        </p>
       </div>
     </section>
   );
