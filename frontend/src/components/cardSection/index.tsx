@@ -1,13 +1,14 @@
-import Card from "../card";
+import Container from "../Container";
+import Card from "./Card";
 
 import styles from "./styles.module.css";
 
 const CardsSection = () => {
   return (
-    <div className={styles.backgroundColor}>
-      <section className={styles.cardsSection}>
-        <h2>Juntos Somos Mais Fortes</h2>
-        <div className={styles.cardsGrid}>
+    <div style={{ backgroundColor: "#f9f9f9" }}>
+      <Container>
+        <h2 className={styles.cardsSectionTitle}>Juntos Somos Mais Fortes</h2>
+        <div className={styles.cards}>
           <Card
             title="Título 1"
             content="lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, "
@@ -17,18 +18,17 @@ const CardsSection = () => {
             content="lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, "
           />
         </div>
-        <div className={styles.cardsGrid}>
+        <div className={styles.cards}>
           <Card
             title="Título 3"
             content="lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, "
           />
-
           <Card
             title="Título 4"
             content="lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, "
           />
         </div>
-      </section>
+      </Container>
     </div>
   );
 };

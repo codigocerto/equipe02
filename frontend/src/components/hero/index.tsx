@@ -5,8 +5,12 @@ import styles from "./styles.module.css";
 
 const HeroSection = () => {
   return (
-    <div className={styles.backgroundColor}>
-      <div className={styles.containerHero}>
+    <div
+      style={{
+        background: "linear-gradient(164.48deg, #000000 10.65%, #141414 69.2%)",
+      }}
+    >
+      <div className={styles.heroContent}>
         <section className={styles.frame}>
           <div className={styles.frameTitle}>
             <h1 className={styles.title}>Alavancar sua carreira, você irá!</h1>
@@ -20,14 +24,18 @@ const HeroSection = () => {
           </div>
         </section>
 
-        <Image
-          src={yodaImage}
-          alt="Imagem do Yoda"
-          width={380}
-          height={500}
-          quality={100}
-          priority
-        />
+        <section className={styles.imageSection}>
+          <Image
+            src={yodaImage}
+            alt="Imagem do Yoda"
+            className={styles.yodaImage}
+            width={380}
+            height={500}
+            quality={100}
+            priority
+          />
+          <div className={styles.elipse}></div>
+        </section>
       </div>
     </div>
   );
