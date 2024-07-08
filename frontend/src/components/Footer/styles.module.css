@@ -1,6 +1,7 @@
 .footer {
   width: 100%;
   height: 12.5rem;
+  padding-inline: 2rem;
   background-color: #000000;
   color: var(--text-color-primary);
 }
@@ -24,4 +25,25 @@
   display: flex;
   color: #e63839;
   gap: 2.5rem;
+}
+
+@media (max-width: 880px) {
+  .footer {
+    height: auto;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navContent {
+    margin-block: 2rem;
+  }
+
+  .socialLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-block: 2rem;
+  }
 }

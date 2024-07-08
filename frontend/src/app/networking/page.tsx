@@ -25,7 +25,7 @@ export default function Networking() {
   return (
     <>
       <HeroSection />
-      <main style={{ backgroundColor: "#141414" }}>
+      <main className={styles.main}>
         <Container>
           <h2 className={styles.titleParaQuem}>Para quem é a comunidade</h2>
           <section className={styles.cardParaQuemSection}>
@@ -172,24 +172,26 @@ export default function Networking() {
             </StackCard>
           </section>
 
-          <h2 className={styles.titleMuitoMais}>E muito mais!</h2>
-          <section className={styles.sectionMuitoMais}>
-            <CardMuitoMais
-              srcImg={projetosImg}
-              altImg="Imagem do card projetos"
-              titleCard="Projetos"
-            />
-            <CardMuitoMais
-              srcImg={mentoriaImg}
-              altImg="Imagem do card mentoria"
-              titleCard="Mentoria"
-            />
-            <CardMuitoMais
-              srcImg={reunioesImg}
-              altImg="Imagem do card reuniões"
-              titleCard="Reuniões"
-            />
-          </section>
+          <div className={styles.muitoMaisSection}>
+            <h2 className={styles.titleMuitoMais}>E muito mais!</h2>
+            <section className={styles.cardMuitoMaisSection}>
+              <CardMuitoMais
+                srcImg={projetosImg}
+                altImg="Imagem do card projetos"
+                titleCard="Projetos"
+              />
+              <CardMuitoMais
+                srcImg={mentoriaImg}
+                altImg="Imagem do card mentoria"
+                titleCard="Mentoria"
+              />
+              <CardMuitoMais
+                srcImg={reunioesImg}
+                altImg="Imagem do card reuniões"
+                titleCard="Reuniões"
+              />
+            </section>
+          </div>
         </Container>
       </main>
     </>

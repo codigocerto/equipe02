@@ -20,3 +20,14 @@
   color: #e2e8f0;
   font: 700 2rem "Inter", sans-serif;
 }
+
+@media (max-width: 768px) {
+  .cardParaQuem {
+    width: 220px;
+    height: 330px;
+  }
+
+  .cardParaQuem h3 {
+    font-size: 1.5rem;
+  }
+}
