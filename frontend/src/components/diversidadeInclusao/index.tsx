@@ -1,22 +1,28 @@
-import React from 'react';
-import styles from './styles.module.css';
+import Image from "next/image";
+
+import imagemInclusao from "../../../public/images/imagem-inclusao.png";
+
+import styles from "./styles.module.css";
 
 const DiversidadeInclusao = () => {
   return (
     <section className={styles.section}>
       <div className={styles.imageContainer}>
-        <img src="/images/imagem-inclusao.png" alt="Diversidade e Inclusao" className={styles.image} />
+        <Image
+          src={imagemInclusao}
+          alt="Diversidade e Inclusao"
+          className={styles.image}
+          width={1120}
+          height={191}
+          quality={100}
+          priority
+        />
         <h2 className={styles.title}>Diversidade e Inclusão</h2>
       </div>
       <div className={styles.textContainer}>
         <p className={styles.paragraph}>
-          Em nossa comunidade, reconhecemos que a diversidade é uma força poderosa que impulsiona a
-          inovação, a criatividade e o progresso.
-        </p>
-        <p className={styles.paragraph}>
-          Acreditamos que a diversidade vai além das diferenças óbvias, como raça, gênero ou orientação
-          sexual. Ela engloba uma ampla gama de características, incluindo origem étnica, idade,
-          habilidades físicas e mentais, experiências de vida e perspectivas culturais.
+          Em nossa comunidade, reconhecemos que a diversidade é uma força
+          poderosa que impulsiona a inovação, a criatividade e o progresso.
         </p>
       </div>
     </section>
