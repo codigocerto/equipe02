@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { FaGithub } from "react-icons/fa6";
 
-import logoImg from "../../../public/images/logo-header.png";
+import logoImg from "../../../public/images/codigocerto.svg";
 
 import styles from "./styles.module.css";
 
@@ -23,8 +23,7 @@ const Header = () => {
           />
         </Link>
         <nav className={styles.navContent}>
-          <Link href="/">Projetos</Link>
-          <Link href="/">Mentoria</Link>
+          <Link href="/diversidade">Diversidade</Link>
           <Link href="/networking">Networking</Link>
         </nav>
         <div className={styles.loginButton}>
