@@ -52,11 +52,11 @@ const Header = () => {
         <nav className={styles.navContent}>
           <Link href="/diversidade">Diversidade</Link>
           <Link href="/networking">Networking</Link>
+          <Link href="/#">Equipe</Link>
         </nav>
 
         <div className={styles.loginButton}>
           <Link href="/">
-            <FaGithub size={26} />
             <span>Login</span>
           </Link>
         </div>
@@ -68,20 +68,19 @@ const Header = () => {
             </button>
 
             <nav className={styles.navContentMobile}>
-              <Link href="/" onClick={toggleNavBar}>
-                Projetos
-              </Link>
-              <Link href="/" onClick={toggleNavBar}>
-                Mentoria
+              <Link href="/diversidade" onClick={toggleNavBar}>
+                Diversidade
               </Link>
               <Link href="/networking" onClick={toggleNavBar}>
                 Networking
+              </Link>
+              <Link href="/#" onClick={toggleNavBar}>
+                Equipe
               </Link>
             </nav>
 
             <div className={styles.loginButtonMobile}>
               <Link href="/">
-                <FaGithub size={26} />
                 <span>Login</span>
               </Link>
             </div>
