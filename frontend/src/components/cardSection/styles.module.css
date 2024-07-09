@@ -1,24 +1,11 @@
-.backgroundColor {
-  background-color: var(--gray-100);
-  width: 100%;
-}
-
-.cardsSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-inline: auto;
-  max-width: 1280px;
-}
-
-.cardsSection h2 {
+.cardsSectionTitle {
   text-align: center;
   margin-top: 4.5rem;
   margin-bottom: 4rem;
   font: 700 3rem "Inter", sans-serif;
 }
 
-.cardsGrid {
+.cards {
   display: flex;
   justify-content: space-between;
 }
