@@ -1,3 +1,8 @@
+.main {
+  background-color: #141414;
+  padding-inline: 2rem;
+}
+
 .titleParaQuem {
   font: 700 3rem "Inter", sans-serif;
   text-align: center;
@@ -132,10 +137,17 @@
   gap: 2rem;
 }
 
+.muitoMaisSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-inline: auto;
+  max-width: 1000px;
+}
+
 .titleMuitoMais {
-  max-width: 600px;
+  text-align: left;
   font: 700 3rem "Inter", sans-serif;
-  text-align: center;
   background: linear-gradient(
     90.21deg,
     #e63939 0.05%,
@@ -148,9 +160,52 @@
   margin-bottom: 4.5rem;
 }
 
-.sectionMuitoMais {
-  min-height: 35vh;
+.cardMuitoMaisSection {
+  padding-bottom: 8rem;
   display: flex;
   justify-content: center;
   gap: 1.4rem;
+}
+
+@media (max-width: 1024px) {
+  .cardParaQuemSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discordSection,
+  .whatsappSection {
+    flex-direction: column;
+  }
+
+  .stackCardSection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+  }
+}
+
+@media (max-width: 880px) {
+  .titleMuitoMais {
+    text-align: center;
+  }
+
+  .cardMuitoMaisSection {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .titleParaQuem,
+  .discordTitle,
+  .whatsappTitle,
+  .stackTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .stackCardSection {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }

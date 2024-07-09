@@ -3,15 +3,16 @@
   justify-content: space-between;
   align-items: center;
   margin-inline: auto;
+  padding-inline: 2rem;
   min-height: calc(100vh - 5rem);
   max-width: 1280px;
 }
 
-.frameTitle {
-  width: 554px;
-  height: 165px;
-  top: 95px;
-  left: 166px;
+.frame {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+  gap: 3rem;
 }
 
 .title {
@@ -26,15 +27,6 @@
   );
   color: transparent;
   background-clip: text;
-}
-
-.frameParagraph {
-  width: 541px;
-  height: 144px;
-  top: 292px;
-  left: 166px;
-  gap: 0px;
-  opacity: 0px;
 }
 
 .paragraph {
@@ -63,4 +55,45 @@
   border-radius: 410px;
   background-color: #e63939;
   filter: blur(40px);
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    margin-top: 5rem;
+  }
+
+  .title,
+  .paragraph {
+    text-align: center;
+  }
+
+  .imageSection {
+    margin-block: 10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .paragraph {
+    font-size: 1.25rem;
+  }
+
+  .yodaImage {
+    width: 300px;
+    height: 400px;
+  }
+
+  .elipse {
+    width: 170px;
+    height: 250px;
+  }
 }

@@ -12,16 +12,13 @@ const HeroSection = () => {
     >
       <div className={styles.heroContent}>
         <section className={styles.frame}>
-          <div className={styles.frameTitle}>
-            <h1 className={styles.title}>Alavancar sua carreira, você irá!</h1>
-          </div>
-          <div className={styles.frameParagraph}>
-            <p className={styles.paragraph}>
-              A Código Certo possui um programa de mentoria flexível e
-              profissionais qualificados prontos para te ajudar na sua jornada
-              na Programação.
-            </p>
-          </div>
+          <h1 className={styles.title}>Alavancar sua carreira, você irá!</h1>
+
+          <p className={styles.paragraph}>
+            A Código Certo possui um programa de mentoria flexível e
+            profissionais qualificados prontos para te ajudar na sua jornada na
+            Programação.
+          </p>
         </section>
 
         <section className={styles.imageSection}>
