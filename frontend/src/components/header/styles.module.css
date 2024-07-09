@@ -69,7 +69,7 @@
     top: 0;
     right: 0;
     width: 300px;
-    z-index: 100;
+    z-index: 999999;
     background-color: #000000;
     gap: 2.5rem;
     padding: 2rem;
