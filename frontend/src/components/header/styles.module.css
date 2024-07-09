@@ -55,6 +55,10 @@
   outline: inherit;
 }
 
+.mobileSection {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .navContent,
   .loginButton {
