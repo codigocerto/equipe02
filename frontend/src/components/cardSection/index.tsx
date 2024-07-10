@@ -1,5 +1,5 @@
 import Container from "../Container";
-import Card from "../card";
+import Card from "../CardSection/Card";
 
 import styles from "./styles.module.css";
 

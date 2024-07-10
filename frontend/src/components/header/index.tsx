@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import { useState, useRef, useEffect } from "react";
 
-import { FaGithub } from "react-icons/fa6";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import logoImg from "../../../public/images/codigocerto.svg";

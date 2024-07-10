@@ -1,8 +1,8 @@
-import CardsSection from "@/components/cardSection";
-import DiversidadeInclusao from "@/components/diversidadeInclusao";
-import NossaMissao from "@/components/nossaMissao";
-import Inclusoes from "@/components/inclusoes";
-import EventosWorkshops from "@/components/eventosWorkshops";
+import CardsSection from "@/components/CardSection";
+import DiversidadeInclusao from "@/components/DiversidadeInclusao";
+import NossaMissao from "@/components/NossaMissao";
+import Inclusoes from "@/components/Inclusoes";
+import EventosWorkshops from "@/components/EventosWorkshops";
 import HeroSection from "@/components/Hero";
 
 const Diversidade = () => {
