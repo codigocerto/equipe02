@@ -1,8 +1,8 @@
 .section {
   text-align: center;
   padding: 40px 20px;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--gray-950);
+  color: var(--gray-100);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +42,7 @@
   font-weight: 400; /* Peso da fonte dos parágrafos */
   line-height: 27.24px; /* Altura da linha dos parágrafos */
   text-align: center; /* Alinha os parágrafos centralmente */
-  color: rgba(255, 255, 255, 1); /* Cor de fundo para os parágrafos */
+  color: var(--gray-100); /* Cor de fundo para os parágrafos */
   padding: 10px; /* Adiciona um padding interno para os parágrafos */
   margin-bottom: 50px; /* Espaçamento abaixo dos parágrafos */
 }

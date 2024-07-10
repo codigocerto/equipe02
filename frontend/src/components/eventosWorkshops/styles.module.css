@@ -8,7 +8,7 @@
 .section h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: red;
+  color: var(--red-500);
   text-align: center;
 }
 
@@ -30,7 +30,8 @@
   padding: 0;
 }
 
-.texts li { /* Textos  */
+.texts li {
+  /* Textos  */
   font-size: 18px;
   margin-bottom: 15px;
   display: flex;
@@ -38,10 +39,11 @@
   font-weight: bold;
 }
 
-.texts li .icon { /* Icone de Check 'V' */
+.texts li .icon {
+  /* Icone de Check 'V' */
   margin-right: 10px;
-  width: 12px; 
-  height: 12px; 
+  width: 12px;
+  height: 12px;
 }
 
 .image {
