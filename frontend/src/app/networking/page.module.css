@@ -1,0 +1,211 @@
+.main {
+  background-color: #141414;
+  padding-inline: 2rem;
+}
+
+.titleParaQuem {
+  font: 700 3rem "Inter", sans-serif;
+  text-align: center;
+  background: linear-gradient(
+    90.21deg,
+    #e63939 0.05%,
+    #b72525 39.61%,
+    #790a0a 91.8%
+  );
+  color: transparent;
+  background-clip: text;
+}
+
+.cardParaQuemSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 4.5rem;
+  gap: 4.5rem;
+}
+
+.discordTitle {
+  font: 700 3rem "Inter", sans-serif;
+  text-align: center;
+  background: linear-gradient(90deg, #e2e8f0 0%, #35394c 100%);
+  color: transparent;
+  background-clip: text;
+  margin-block: 4.5rem;
+}
+
+.discordSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  gap: 4.3rem;
+}
+
+.notebookImg {
+  filter: drop-shadow(4.79px 4.79px 15.34px #b0b0b01a)
+    drop-shadow(18.21px 21.09px 27.8px #b0b0b017)
+    drop-shadow(40.26px 46.97px 37.38px #b0b0b00d)
+    drop-shadow(71.89px 84.35px 44.09px #b0b0b003)
+    drop-shadow(112.15px 131.32px 47.93px #b0b0b000);
+}
+
+.discordSection p {
+  max-width: 414px;
+  font: 400 1rem "Inter", sans-serif;
+  color: var(--text-color-primary);
+  line-height: 1.25rem;
+}
+
+.discordButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  margin-block: 4.5rem;
+  font: 400 1.5rem "Noto Sans", sans-serif;
+  color: var(--gray-400);
+  background-color: var(--gray-700);
+  max-width: 160px;
+  border-radius: 1rem;
+  padding-block: 0.7rem;
+  gap: 0.5rem;
+}
+
+.whatsappTitle {
+  font: 700 3rem "Inter", sans-serif;
+  text-align: center;
+  background: linear-gradient(
+    90.21deg,
+    #e63939 0.05%,
+    #b72525 39.61%,
+    #790a0a 91.8%
+  );
+  color: transparent;
+  background-clip: text;
+  margin-block: 4.5rem;
+}
+
+.whatsappSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  gap: 4.3rem;
+}
+
+.celularImg {
+  filter: drop-shadow(4.79px 4.79px 15.34px #b0b0b01a)
+    drop-shadow(18.21px 21.09px 27.8px #b0b0b017)
+    drop-shadow(40.26px 46.97px 37.38px #b0b0b00d)
+    drop-shadow(71.89px 84.35px 44.09px #b0b0b003)
+    drop-shadow(112.15px 131.32px 47.93px #b0b0b000);
+}
+
+.whatsappSection p {
+  max-width: 414px;
+  font: 400 1rem "Inter", sans-serif;
+  color: var(--text-color-primary);
+  line-height: 1.25rem;
+}
+
+.whatsappButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  margin-block: 4.5rem;
+  font: 400 1.5rem "Noto Sans", sans-serif;
+  color: var(--gray-400);
+  background-color: var(--gray-700);
+  max-width: 170px;
+  border-radius: 1rem;
+  padding-block: 0.7rem;
+  gap: 0.5rem;
+}
+
+.stackTitle {
+  font: 700 3rem "Inter", sans-serif;
+  text-align: center;
+  background: linear-gradient(90deg, #e2e8f0 0%, #35394c 100%);
+  color: transparent;
+  background-clip: text;
+}
+
+.stackCardSection {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 4.5rem;
+  gap: 2rem;
+}
+
+.muitoMaisSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-inline: auto;
+  max-width: 1000px;
+}
+
+.titleMuitoMais {
+  text-align: left;
+  font: 700 3rem "Inter", sans-serif;
+  background: linear-gradient(
+    90.21deg,
+    #e63939 0.05%,
+    #b72525 39.61%,
+    #790a0a 91.8%
+  );
+  color: transparent;
+  background-clip: text;
+  margin-top: 9rem;
+  margin-bottom: 4.5rem;
+}
+
+.cardMuitoMaisSection {
+  padding-bottom: 8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+@media (max-width: 1024px) {
+  .cardParaQuemSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discordSection,
+  .whatsappSection {
+    flex-direction: column;
+  }
+
+  .stackCardSection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+  }
+}
+
+@media (max-width: 880px) {
+  .titleMuitoMais {
+    text-align: center;
+  }
+
+  .cardMuitoMaisSection {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .titleParaQuem,
+  .discordTitle,
+  .whatsappTitle,
+  .stackTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .stackCardSection {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

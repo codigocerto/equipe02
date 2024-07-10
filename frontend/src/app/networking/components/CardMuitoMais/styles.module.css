@@ -1,0 +1,35 @@
+.cardMuitoMais {
+  width: 316px;
+  height: 175px;
+  padding-left: 0.75rem;
+  padding-right: 1.3rem;
+  background: radial-gradient(
+    69% 72.86% at -0.03% 0%,
+    #35394c 0%,
+    #141414 100%
+  );
+  border-radius: 0.7rem;
+  border: 0.69px linear-gradient(150.58deg, #4f4f4f 0%, #141414 113.27%);
+  box-shadow: 12px 12px 20px 0px #000000;
+}
+
+.cardMuitoMaisSection {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+}
+
+.cardMuitoMaisSection h3 {
+  font: 700 1.4rem "Inter", sans-serif;
+}
+
+.cardMuitoMaisSection h3,
+.cardMuitoMais p {
+  color: var(--text-color-primary);
+}
+
+.cardMuitoMais p {
+  font: 400 0.9rem "Noto Sans", sans-serif;
+  margin-top: 1rem;
+}
