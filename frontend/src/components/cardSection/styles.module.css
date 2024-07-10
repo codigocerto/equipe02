@@ -1,0 +1,11 @@
+.cardsSectionTitle {
+  text-align: center;
+  margin-top: 4.5rem;
+  margin-bottom: 4rem;
+  font: 700 3rem "Inter", sans-serif;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
