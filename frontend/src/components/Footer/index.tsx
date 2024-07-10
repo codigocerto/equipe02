@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-import logoImg from "../../../public/images/logo-footer.png";
+import logoImg from "../../../public/images/codigocerto_texto.svg";
 
 import styles from "./styles.module.css";
 

@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
-import logoImg from "../../../public/images/logo-header.png";
+import logoImg from "../../../public/images/codigocerto.svg";
 
 import styles from "./styles.module.css";
 
@@ -50,14 +50,13 @@ const Header = () => {
         </Link>
 
         <nav className={styles.navContent}>
-          <Link href="/">Projetos</Link>
-          <Link href="/">Mentoria</Link>
+          <Link href="/diversidade">Diversidade</Link>
           <Link href="/networking">Networking</Link>
+          <Link href="/#">Equipe</Link>
         </nav>
 
         <div className={styles.loginButton}>
           <Link href="/">
-            <FaGithub size={26} />
             <span>Login</span>
           </Link>
         </div>
@@ -69,20 +68,19 @@ const Header = () => {
             </button>
 
             <nav className={styles.navContentMobile}>
-              <Link href="/" onClick={toggleNavBar}>
-                Projetos
-              </Link>
-              <Link href="/" onClick={toggleNavBar}>
-                Mentoria
+              <Link href="/diversidade" onClick={toggleNavBar}>
+                Diversidade
               </Link>
               <Link href="/networking" onClick={toggleNavBar}>
                 Networking
+              </Link>
+              <Link href="/#" onClick={toggleNavBar}>
+                Equipe
               </Link>
             </nav>
 
             <div className={styles.loginButtonMobile}>
               <Link href="/">
-                <FaGithub size={26} />
                 <span>Login</span>
               </Link>
             </div>
