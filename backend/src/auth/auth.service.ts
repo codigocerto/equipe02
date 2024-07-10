@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User } from 'src/register/entities/user.entity';
-import { UsersService } from 'src/register/users.service';
+import { User } from 'src/domain/entities/user/user.entity';
+import { UsersService } from 'src/domain/users.service';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +10,7 @@ export class AuthService {
     private userService: UsersService,
   ) {}
 
-  async validateUser(payload: any): Promise<User> {
+  async validate(payload: any): Promise<User> {
     return this.userService.findByEmail(payload.email);
   }
 

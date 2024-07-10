@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, Request } from '@nestjs/common';
-import { UsersService } from 'src/register/users.service';
+import { UsersService } from 'src/domain/users.service';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -11,7 +11,7 @@ export class AuthController {
 
   @Post('login')
   async login(
-    @Body('username') email: string,
+    @Body('email') email: string,
     @Body('password') password: string,
   ) {
     const user = await this.userService.validateUser(email, password);
@@ -20,6 +20,6 @@ export class AuthController {
 
   @Get('profile')
   getProfile(@Request() req) {
-    return this.authService.validateUser(req.user);
+    return this.authService.validate(req.user);
   }
 }

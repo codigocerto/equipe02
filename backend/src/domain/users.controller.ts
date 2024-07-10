@@ -8,8 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { CreateUserDto } from './dto/user/create-user.dto';
+import { UpdateUserDto } from './dto/user/update-user.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { UUID } from 'crypto';
 
@@ -20,7 +20,7 @@ export class UsersController {
 
   @Post('register')
   create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.register(createUserDto);
+    return this.usersService.createUser(createUserDto);
   }
 
   @Get('all-users')
@@ -29,9 +29,10 @@ export class UsersController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: UUID) {
-    return this.usersService.findUser(id);
+  async findUser(@Param('id') id: UUID) {
+    return this.usersService.getUser(id);
   }
+  
 
   @Patch(':id')
   update(@Param('id') id: UUID, @Body() updateUserDto: UpdateUserDto) {

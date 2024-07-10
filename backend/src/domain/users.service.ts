@@ -4,10 +4,10 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { CreateUserDto } from './dto/user/create-user.dto';
+import { UpdateUserDto } from './dto/user/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from './entities/user.entity';
+import { User } from './entities/user/user.entity';
 import { Repository } from 'typeorm';
 import { UUID } from 'crypto';
 
@@ -17,29 +17,27 @@ export class UsersService {
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
 
-  async register(createUserDto: CreateUserDto): Promise<User> {
-    const checkUser = await this.findByEmail(createUserDto.email);
+  async createUser(userDto: CreateUserDto): Promise<User> {
+    const checkUser = await this.findByEmail(userDto.email);
 
     if (checkUser) throw new ConflictException('Usuário já cadastrado!');
 
-    return this.userRepository.save(createUserDto);
+    return this.userRepository.save(userDto);
   }
 
   async findAll(): Promise<User[] | null> {
     return this.userRepository.find();
   }
 
-  async findUser(userId: UUID): Promise<User | null> {
-    const checkUser = await this.userRepository.findOne({
-      where: {
-        id: userId,
-      },
+  async getUser(id: UUID) {
+    const user = await this.userRepository.findOne({
+      where: { id },
     });
 
-    if (!checkUser)
-      throw new NotFoundException('Usuário não existe no banco de dados');
+    if (!user)
+      throw new NotFoundException('Usuário não existe no banco de dados!');
 
-    return checkUser;
+    return user;
   }
 
   async update(id: UUID, updateUserDto: UpdateUserDto): Promise<User> {
