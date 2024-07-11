@@ -2,10 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px; /* Aumentar o espaçamento entre as colunas */
-  padding: 72px 0;
+  padding: 72px 0px 72px 0px;
   width: 100%;
   margin: 0 auto;
-  background-color: black;
+  background-color: var(--gray-950);
+  width: Fixed (1,120px)px;
+  height: Hug (740px)px;
+  top: 2579px;
+  left: 160px;
 }
 
 .imageWrapper {
@@ -66,7 +70,7 @@
   font-style: italic;
   font-weight: 800;
   line-height: 36.31px;
-  color: white;
+  color: var(--text-color-primary);
   margin-bottom: 10px;
 }
 
@@ -75,5 +79,5 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 24.2px;
-  color: white;
+  color: var(--text-color-primary);
 }

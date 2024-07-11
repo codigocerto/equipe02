@@ -17,7 +17,13 @@
   --red-300: #ff5959;
   --red-500: #e63939;
   --red-700: #bf1313;
+
+  /* cores para a seção diversidade adicionadas */
+  --purple-500: rgba(240, 135, 255, 1);
+  --purple-600: rgba(184, 82, 214, 1);
+  --purple-700: rgba(138, 56, 163, 1);
 }
+
 
 main {
   width: 100%;
