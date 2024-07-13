@@ -1,0 +1,124 @@
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  min-height: calc(100vh - 5rem);
+  max-width: 1280px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+  gap: 3rem;
+}
+
+.title {
+  font: 700 3rem "Inter", sans-serif;
+  line-height: 56px;
+  text-align: left;
+  background: linear-gradient(
+    90.21deg,
+    var(--purple-500) 0.05%,
+    var(--purple-600) 39.61%, /* Tom intermediário */
+    var(--purple-700) 91.8%  /* Tom final  */
+  );
+  color: transparent;
+  background-clip: text;
+}
+
+.paragraph {
+  color: var(--text-color-primary);
+  font: 400 1.5rem "Noto Sans", sans-serif;
+  line-height: 48px;
+  text-align: left;
+}
+
+.imageSection {
+  display: flex;
+  align-items: flex-end; /* Alinhar a imagem à borda inferior */
+  justify-content: flex-start; /* Alinhado à esquerda */
+  position: relative;
+  height: 100vh; /* Ocupa toda a altura da viewport */
+}
+
+.WomanImage {
+  position: relative;
+  z-index: 10;
+  left: 50px; /* Ajuste horizontal */
+  width: 100%;
+  height: auto; 
+}
+
+.elipse {
+  width: 224px;
+  height: 310px;
+  position: absolute;
+  right: 110px; /* Ajuste horizontal */
+  transform: rotate(0.099deg);
+  flex-shrink: 0;
+  border-radius: 410px;
+  background-color: var(--purple-500);
+  filter: blur(40px);
+  z-index: 5;
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    margin-top: 5rem;
+  }
+
+  .title,
+  .paragraph {
+    text-align: center;
+  }
+
+  .imageSection {
+    margin-block: 10rem;
+    align-items: center;
+  }
+
+  .WomanImage {
+    left: 0; 
+    height: auto; /* Ajuste para altura automática */
+  }
+
+  .elipse {
+    left: 0; 
+    right: 0; 
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .paragraph {
+    font-size: 1.25rem;
+  }
+
+  .WomanImage {
+    width: 300px;
+    height: 400px;
+    left: 0; 
+    height: auto; 
+  }
+
+  .elipse {
+    width: 170px;
+    height: 250px;
+    left: 0; 
+    right: 0; 
+  }
+}
