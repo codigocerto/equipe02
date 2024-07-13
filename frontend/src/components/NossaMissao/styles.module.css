@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   padding: 70px 70px;
+  gap: 50px; /* Espaçamento entre as colunas */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -31,5 +32,85 @@
 
 .imageContainer img {
   max-width: 100%;
+  height: auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column; /* Alterado para uma disposição em coluna em telas menores */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    flex-direction: row; /* Alterado de volta para disposição em linha em telas maiores */
+    justify-content: center;
+    align-items: center;
+    padding: 70px 70px;
+  }
+}
+
+@media (min-width: 360px) {
+  /* Media query para iPhone SE */
+  .section {
+    padding: 60px 30px;
+  }
+}
+
+@media (min-width: 414px) {
+  /* Media query para iPhone XR */
+  .section {
+    padding: 70px 40px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 420px) {
+  /* Media query para iPhone 12 Pro e modelos similares */
+  .section {
+    padding: 70px 50px;
+  }
+}
+
+@media (min-width: 428px) {
+  /* Media query para iPhone 14 Pro Max */
+  .section {
+    padding: 80px 60px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 740px) {
+  /* Media query para Samsung Galaxy S8+ */
+  .section {
+    padding: 70px 60px;
+  }
+}
+
+.textContainer {
+  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+.textContainer h2 {
+  font-size: 2rem;
+  color: var(--red-700);
+  margin-bottom: 10px; /* Reduzido o espaço entre o título e o parágrafo */
+  text-align: left;
+}
+
+.textContainer p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.imageContainer {
+  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
+  text-align: center; /* Centralizado o conteúdo da imagem */
+}
+
+.imageContainer img {
+  max-width: 100%; /* Imagem responsiva ocupando toda a largura disponível */
   height: auto;
 }

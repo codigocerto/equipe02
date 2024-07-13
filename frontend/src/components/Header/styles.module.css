@@ -8,6 +8,7 @@
 
   color: var(--gray-400);
   font: 400 1.5rem "Noto Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 .headerContent {
@@ -55,12 +56,36 @@
   outline: inherit;
 }
 
+/* Ajustes para telas maiores que 1280px (desktop grande) */
+@media (min-width: 1281px) {
+  .headerContent {
+    padding-inline: 4rem;
+  }
+}
+
+/* Ajustes para telas entre 1024px e 1280px (desktop médio) */
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .headerContent {
+    padding-inline: 3rem;
+  }
+}
+
+/* Ajustes para telas entre 768px e 1024px (tablet) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .headerContent {
+    padding-inline: 2rem;
+  }
+}
+
+/* Ajustes para telas entre 480px e 768px (tablet pequeno / celular grande) */
 @media (max-width: 768px) {
+  /* Esconde navegação e botão de login padrão */
   .navContent,
   .loginButton {
     display: none;
   }
 
+  /* Mostra a seção mobile com layout de coluna */
   .mobileSection {
     display: flex;
     flex-direction: column;
@@ -77,19 +102,22 @@
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
   }
 
+  /* Navegação mobile com layout de coluna */
   .navContentMobile {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
   }
 
+  /* Mostra os botões de menu em telas menores */
   .hamburgerButton,
   .closeButton {
     display: flex;
   }
 }
 
-@media (max-width: 400px) {
+/* Ajustes para telas menores que 480px (celular pequeno) */
+@media (max-width: 480px) {
   .mobileSection {
     width: 100%;
   }
