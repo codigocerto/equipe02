@@ -10,7 +10,11 @@
 
 .section h2 {
   margin-bottom: 20px;
-  color: var(--red-700);
+<<<<<<< HEAD:frontend/src/components/EventosWorkshops/styles.module.css
+  color: var( --red-700);
+=======
+  color: var(--red-500);
+>>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/eventosWorkshops/styles.module.css
   text-align: center;
   font-family: "Inter", sans-serif;
   font-size: 40px;
@@ -38,8 +42,13 @@
   padding: 0;
 }
 
+<<<<<<< HEAD:frontend/src/components/EventosWorkshops/styles.module.css
+.texts li { /* Textos  */
+=======
 .texts li {
   /* Textos  */
+  font-size: 18px;
+>>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/eventosWorkshops/styles.module.css
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -50,11 +59,18 @@
   text-align: left;
 }
 
-.texts li .icon {
-  /* Icone de Check */
+<<<<<<< HEAD:frontend/src/components/EventosWorkshops/styles.module.css
+.texts li .icon { /* Icone de Check */
   margin-right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 30px; 
+  height: 30px; 
+=======
+.texts li .icon {
+  /* Icone de Check 'V' */
+  margin-right: 10px;
+  width: 12px;
+  height: 12px;
+>>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/eventosWorkshops/styles.module.css
 }
 
 .image {
