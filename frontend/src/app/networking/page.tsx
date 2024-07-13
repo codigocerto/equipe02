@@ -52,7 +52,7 @@ export default function Networking() {
               src={notebookImg}
               alt="Imagem do Notebook"
               className={styles.notebookImg}
-              width={414}
+              width={525}
               height={308}
               quality={100}
               priority
@@ -105,7 +105,7 @@ export default function Networking() {
               src={celularImg}
               alt="Imagem do Celular"
               className={styles.celularImg}
-              width={412}
+              width={500}
               height={317}
               quality={100}
               priority
@@ -125,7 +125,7 @@ export default function Networking() {
             <StackCard stackCardTitle="Frontend">
               <TechCard techTitle="HTML" bgColor="#E34f26" />
               <TechCard techTitle="CSS" bgColor="#1572b6" />
-              <TechCard techTitle="JavaScript" bgColor="#f7df1e" />
+              <TechCard techTitle="JavaScript" bgColor="#d5ba36" />
               <TechCard techTitle="Angular" bgColor="#dd0031" />
               <TechCard techTitle="React" bgColor="#61dafb" />
             </StackCard>

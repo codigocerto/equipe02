@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: Fixed (1,440px)px;
-  height: Fixed (621px)px;
+  width: Fixed (1, 440px) px;
+  height: Fixed (621px) px;
   top: 3319px;
   padding: 72px 0px 72px 0px;
 }
 
 .section h2 {
   margin-bottom: 20px;
-  color: var( --red-700);
+  color: var(--red-700);
   text-align: center;
   font-family: "Inter", sans-serif;
   font-size: 40px;
@@ -38,7 +38,8 @@
   padding: 0;
 }
 
-.texts li { /* Textos  */
+.texts li {
+  /* Textos  */
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -47,13 +48,13 @@
   font-size: 26px;
   font-weight: 400;
   text-align: left;
-
 }
 
-.texts li .icon { /* Icone de Check */
+.texts li .icon {
+  /* Icone de Check */
   margin-right: 10px;
-  width: 30px; 
-  height: 30px; 
+  width: 30px;
+  height: 30px;
 }
 
 .image {
@@ -62,5 +63,4 @@
   margin-left: 20px;
   width: 535px;
   height: 351px;
-
 }

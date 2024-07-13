@@ -6,8 +6,8 @@
   width: 100%;
   margin: 0 auto;
   background-color: var(--gray-950);
-  width: Fixed (1,120px)px;
-  height: Hug (740px)px;
+  width: Fixed (1, 120px) px;
+  height: Hug (740px) px;
   top: 2579px;
   left: 160px;
 }
@@ -65,7 +65,7 @@
 }
 
 .title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 30px;
   font-style: italic;
   font-weight: 800;
@@ -75,7 +75,7 @@
 }
 
 .text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 24.2px;
