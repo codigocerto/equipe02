@@ -1,11 +1,11 @@
 import Container from "../Container";
-import Card from "./Card";
+import Card from "../CardSection/Card";
 
 import styles from "./styles.module.css";
 
 const CardsSection = () => {
   return (
-    <div style={{ backgroundColor: "#f9f9f9" }}>
+    <div className={styles.cardSectionContainer}>
       <Container>
         <h2 className={styles.cardsSectionTitle}>Juntos Somos Mais Fortes</h2>
         <div className={styles.cards}>

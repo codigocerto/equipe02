@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import { useState, useRef, useEffect } from "react";
 
-import { FaGithub } from "react-icons/fa6";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import logoImg from "../../../public/images/codigocerto.svg";
@@ -61,6 +60,10 @@ const Header = () => {
           </Link>
         </div>
 
+        <button className={styles.hamburgerButton} onClick={toggleNavBar}>
+          <AiOutlineMenu size={36} />
+        </button>
+
         {isOpen && (
           <div className={styles.mobileSection} ref={menuRef}>
             <button className={styles.closeButton} onClick={toggleNavBar}>
@@ -86,10 +89,6 @@ const Header = () => {
             </div>
           </div>
         )}
-
-        <button className={styles.hamburgerButton} onClick={toggleNavBar}>
-          <AiOutlineMenu size={36} />
-        </button>
       </div>
     </header>
   );
