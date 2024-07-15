@@ -2,6 +2,50 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 40px 20px; /* Ajustado o padding para telas menores */
+  max-width: 100%; /* Ocupar toda a largura disponível */
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 72px 40px; /* Ajuste de padding para telas maiores */
+  }
+}
+
+@media (min-width: 360px) {
+  /* Media query para iPhone SE */
+  .section {
+    padding: 60px 20px;
+  }
+}
+
+@media (min-width: 414px) {
+  /* Media query para iPhone XR */
+  .section {
+    padding: 70px 30px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 420px) {
+  /* Media query para iPhone 12 Pro e modelos similares */
+  .section {
+    padding: 70px 40px;
+  }
+}
+
+@media (min-width: 428px) {
+  /* Media query para iPhone 14 Pro Max */
+  .section {
+    padding: 80px 50px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 740px) {
+  /* Media query para Samsung Galaxy S8+ */
+  .section {
+    padding: 70px 60px;
+  }
   width: Fixed (1, 440px) px;
   height: Fixed (621px) px;
   top: 3319px;
@@ -10,31 +54,34 @@
 
 .section h2 {
   margin-bottom: 20px;
-<<<<<<< HEAD:frontend/src/components/EventosWorkshops/styles.module.css
   color: var( --red-700);
-=======
-  color: var(--red-500);
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/eventosWorkshops/styles.module.css
   text-align: center;
   font-family: "Inter", sans-serif;
-  font-size: 40px;
+  font-size: 32px; /* Ajuste de tamanho para telas menores */
   font-weight: 700;
-  line-height: 48.41px;
-  width: 451px;
-  height: 46px;
+  line-height: 1.5;
+  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
 }
 
 .sectionContent {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 1200px;
 }
 
+@media (min-width: 768px) {
+  .sectionContent {
+    flex-direction: row; /* Alterado para linha em telas maiores */
+  }
+}
+
 .texts {
-  max-width: 500px;
+  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .texts ul {
@@ -42,40 +89,37 @@
   padding: 0;
 }
 
-<<<<<<< HEAD:frontend/src/components/EventosWorkshops/styles.module.css
-.texts li { /* Textos  */
-=======
 .texts li {
   /* Textos  */
   font-size: 18px;
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/eventosWorkshops/styles.module.css
   margin-bottom: 15px;
   display: flex;
   align-items: center;
   font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 18px; /* Ajuste de tamanho para telas menores */
+}
+
+.texts li .icon {
+  margin-right: 10px;
+  width: 24px; /* Ajuste de tamanho para telas menores */
+  height: 24px; /* Ajuste de tamanho para telas menores */
   font-family: Noto Sans;
   font-size: 26px;
   font-weight: 400;
   text-align: left;
 }
 
-<<<<<<< HEAD:frontend/src/components/EventosWorkshops/styles.module.css
-.texts li .icon { /* Icone de Check */
-  margin-right: 10px;
-  width: 30px; 
-  height: 30px; 
-=======
-.texts li .icon {
-  /* Icone de Check 'V' */
-  margin-right: 10px;
-  width: 12px;
-  height: 12px;
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/eventosWorkshops/styles.module.css
-}
+/*.texts li .icon { /* Icone de Check */
+ /* margin-right: 10px;*/
+ /* width: 30px; */
+ /* height: 30px; */
+
 
 .image {
-  max-width: 500px;
+  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
   height: auto;
+  margin-top: 20px; /* Adicionado espaço superior para separar a imagem do texto */
   margin-left: 20px;
   width: 535px;
   height: 351px;
