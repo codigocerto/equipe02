@@ -7,7 +7,7 @@
 }
 
 .stackCard h3 {
-  color: #e2e8f0;
+  color: var(--text-color-primary);
   font: 500 2rem "Noto Sans", sans-serif;
   text-align: center;
   margin-top: 0.5rem;

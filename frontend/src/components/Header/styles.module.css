@@ -78,6 +78,7 @@
 }
 
 /* Ajustes para telas entre 480px e 768px (tablet pequeno / celular grande) */
+
 @media (max-width: 768px) {
   /* Esconde navegação e botão de login padrão */
   .navContent,
@@ -94,12 +95,13 @@
     top: 0;
     right: 0;
     width: 300px;
-    z-index: 100;
-    background-color: #000000;
+    z-index: 99999;
+    background-color: var(--gray-950);
     gap: 2.5rem;
     padding: 2rem;
-    height: 100vh;
+    height: 100%;
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    transition: 0.75s ease-in-out;
   }
 
   /* Navegação mobile com layout de coluna */

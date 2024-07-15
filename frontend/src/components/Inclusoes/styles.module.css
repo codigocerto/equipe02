@@ -5,7 +5,11 @@
   padding: 50px 20px; /* Padding ajustado para telas menores */
   max-width: 100%; /* Ocupar toda a largura disponível */
   margin: 0 auto;
-  background-color: var(--gray-950);
+  background-color: var(--gray-950)
+  width: Fixed (1,120px)px;
+  height: Hug (740px)px;
+  top: 2579px;
+  left: 160px;
 }
 
 @media (min-width: 768px) {
@@ -89,6 +93,11 @@
   font-style: italic;
   font-weight: 800;
   line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 36.31px;
   color: var(--text-color-primary);
   margin-bottom: 10px;
 }
@@ -98,5 +107,9 @@
   font-size: 16px; /* Tamanho da fonte ajustado para telas menores */
   font-weight: 400;
   line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
   color: var(--text-color-primary);
 }

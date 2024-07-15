@@ -17,7 +17,7 @@
 }
 
 .cardParaQuem h3 {
-  color: #e2e8f0;
+  color: var(--text-color-primary);
   font: 700 2rem "Inter", sans-serif;
 }
 
