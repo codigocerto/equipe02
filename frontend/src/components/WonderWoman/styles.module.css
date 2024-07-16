@@ -48,19 +48,18 @@
   height: 100vh;
 }
 
-/* Estilo da imagem */
 .WomanImage {
   position: relative;
-  bottom: 0; /* Garantindo que comece na borda inferior */
+  bottom: 0; 
   z-index: 10;
   width: 100%; /* Ajustando para ocupar toda a largura disponível */
-  max-width: 480px; /* Limitando a largura máxima da imagem */
+  max-width: 690px; /* Limitando a largura máxima da imagem */
   height: auto; /* Altura ajustada automaticamente */
+  width: 690px;
+  height: 619px;
 }
 
 .elipse {
-  width: 224px;
-  height: 310px;
   position: absolute;
   bottom: 0; /* Garantindo que comece na borda inferior */
   right: 110px;
@@ -70,6 +69,9 @@
   background-color: var(--purple-500);
   filter: blur(40px);
   z-index: 5;
+  width: 258.16px;
+  height: 387.36px;
+  right: 215px;
 }
 
 /* Ajustes para telas menores que 1024px */
@@ -99,14 +101,20 @@
 
   .WomanImage {
     width: 100%; /* Ajustando a largura da imagem para ocupar toda a tela */
-    max-width: 300px; /* Limitando a largura máxima da imagem */
+    max-width: 600px;
+    max-height: 500px;
+    margin-bottom: -30px;
+    left: 40px;
   }
 
   .elipse {
-    bottom: -20px; /* Ajuste para alinhar a elipse na parte inferior */
-    left: 0;
+    bottom: -20px;
     right: 0;
-    margin: auto; /* Centralizando a elipse */
+    margin: auto;
+    height: 360px;
+    width: 250px;
+    margin-bottom: 10px;
+    left: 40px;
   }
 }
 
@@ -123,12 +131,13 @@
   }
 
   .WomanImage {
-    max-width: 250px; /* Limitando a largura máxima da imagem */
+    max-width: 650px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
-    width: 170px;
-    height: 250px;
+    width: 200px;
+    height: 300px;
+    margin-bottom: 0;
   }
 }
 
@@ -238,12 +247,15 @@
   }
 
   .WomanImage {
-    max-width: 230px; /* Limitando a largura máxima da imagem */
+    max-width: 430px;
+    max-height: 350px;
+    left: 20px;
   }
 
   .elipse {
     width: 160px;
     height: 210px;
+    right: 20px;
   }
 }
 
@@ -259,7 +271,7 @@
   }
 
   .WomanImage {
-    max-width: 160px; /* Limitando a largura máxima da imagem */
+    max-width: 460px;
   }
 
   .elipse {
