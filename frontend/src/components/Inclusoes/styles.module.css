@@ -5,7 +5,7 @@
   padding: 50px 20px; /* Padding ajustado para telas menores */
   max-width: 100%; /* Ocupar toda a largura disponível */
   margin: 0 auto;
-  background-color: var(--gray-950);
+  background-color: var(--gray-900);
 }
 
 @media (min-width: 768px) {

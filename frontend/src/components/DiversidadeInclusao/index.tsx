@@ -1,7 +1,5 @@
 import Image from "next/image";
-
 import imagemInclusao from "../../../public/images/imagem-inclusao.png";
-
 import styles from "./styles.module.css";
 
 const DiversidadeInclusao = () => {
@@ -12,8 +10,8 @@ const DiversidadeInclusao = () => {
           src={imagemInclusao}
           alt="Diversidade e Inclusao"
           className={styles.image}
-          width={1120}
-          height={191}
+          width={1200}
+          height={210}
           quality={100}
           priority
         />
@@ -30,3 +28,4 @@ const DiversidadeInclusao = () => {
 };
 
 export default DiversidadeInclusao;
+

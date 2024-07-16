@@ -7,9 +7,34 @@
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Ajustes específicos para iPad */
   .section {
-    padding: 72px 40px; /* Ajuste de padding para telas maiores */
+    padding: 60px 30px; /* Ajuste de padding para iPads */
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column; /* Mantém a direção em coluna para melhor legibilidade */
+    align-items: center;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura máxima */
+    height: auto;
+    margin-top: 20px; /* Adiciona espaço acima da imagem */
+    max-width: 503px; /* Largura máxima da imagem */
+    min-width: 10%;
+  }
+
+  .texts {
+    text-align: center; /* Centraliza o texto */
+    max-width: 100%; /* Garante que o texto ocupe toda a largura disponível */
+  }
+
+  .texts li {
+    font-size: 18px; /* Ajuste de tamanho de fonte */
   }
 }
 
@@ -91,13 +116,13 @@
   align-items: center;
   font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 18px; /* Ajuste de tamanho para telas menores */
+  font-size: 20px; /* Ajuste de tamanho para telas menores */
 }
 
 .texts li .icon {
   margin-right: 10px;
-  width: 24px; /* Ajuste de tamanho para telas menores */
-  height: 24px; /* Ajuste de tamanho para telas menores */
+  width: 24px; 
+  height: 24px; 
 }
 
 .image {

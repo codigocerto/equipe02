@@ -1,53 +1,47 @@
 .section {
   text-align: center;
-  padding: 50px 20px; /* Ajustado o padding para telas menores */
-  gap: 50px; /* Espaçamento entre as colunas */
-  background-color: var(--gray-950);
+  padding: 40px;
+  gap: 10px;
+  background-color: var(--gray-900);
   color: var(--text-color-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 0;
-  max-width: 100%; /* Ocupar toda a largura disponível */
+  max-width: 100%;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 70px 40px; /* Ajuste de padding para telas maiores */
+    padding: 70px 40px;
   }
 }
 
 @media (min-width: 360px) {
-  /* Media query para iPhone SE */
   .section {
     padding: 60px 20px;
   }
 }
 
 @media (min-width: 414px) {
-  /* Media query para iPhone XR */
   .section {
     padding: 70px 30px;
   }
 }
 
 @media (min-width: 390px) and (max-width: 420px) {
-  /* Media query para iPhone 12 Pro e modelos similares */
   .section {
     padding: 70px 40px;
   }
 }
 
 @media (min-width: 428px) {
-  /* Media query para iPhone 14 Pro Max */
   .section {
-    padding: 80px 50px;
+    padding: 60px 50px;
   }
 }
 
 @media (min-width: 360px) and (max-width: 740px) {
-  /* Media query para Samsung Galaxy S8+ */
   .section {
     padding: 70px 60px;
   }
@@ -57,39 +51,53 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px; /* Ajustado o gap entre a imagem e o título para telas menores */
+  margin-bottom: 20px;
 }
 
 .image {
   width: 100%;
   height: auto;
-  max-width: 100%; /* Garantindo que a imagem não ultrapasse a largura máxima do contêiner */
-  margin-bottom: 20px; /* Ajustado o gap entre a imagem e o texto para telas menores */
+  max-width: 1120px;
+  margin-bottom: 40px; /* Adicionando mais espaço entre a imagem e o título */
 }
 
 .title {
   font-family: 'Inter', sans-serif;
-  font-size: 36px; /* Ajuste de tamanho para telas menores */
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.5;
-  margin-bottom: 1px; /* Ajustado o gap entre o título e o texto para telas menores */
+  margin-bottom: 10px;
   max-width: 100%;
   opacity: 1;
   color: var(--text-color-primary);
 }
 
+@media (min-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+}
+
 .textContainer {
-  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
+  max-width: 600px; /* Limitando a largura do container de texto */
+  width: 100%;
   opacity: 1;
 }
 
 .paragraph {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 20px; 
+  font-size: 16px; /* Ajuste para um tamanho menor em dispositivos móveis */
   font-weight: 400;
   line-height: 1.6;
   text-align: center;
   color: var(--text-color-primary);
-  padding: 10px;
+  padding: 0 20px; /* Reduzir o padding lateral */
   margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .paragraph {
+    font-size: 20px;
+    padding: 0 10px; /* Padding lateral padrão para telas maiores */
+  }
 }

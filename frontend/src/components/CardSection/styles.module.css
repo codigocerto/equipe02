@@ -85,8 +85,8 @@
 }
 
 .card {
-  background: var(--white);
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  background: var(--text-color-primary);
+  box-shadow: 0px 2px 10px var(--gray-950);
   border-radius: 8px;
   padding: 20px;
   flex: 1 1 calc(45% - 20px); /* Ajuste para garantir espaçamento adequado */
