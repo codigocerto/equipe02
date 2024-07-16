@@ -38,7 +38,6 @@
   width: 100%; /* Ajuste para ocupar toda a largura disponível */
   max-width: 550px; /* Limitando a largura máxima do parágrafo */
   margin-top: 1rem; /* Espaço superior ajustado */
-  opacity: 0; /* Mantendo o texto inicialmente invisível */
 }
 
 .imageSection {
@@ -52,8 +51,10 @@
 /* Estilo da imagem */
 .WomanImage {
   position: relative;
+  bottom: 0; /* Garantindo que comece na borda inferior */
   z-index: 10;
   width: 100%; /* Ajustando para ocupar toda a largura disponível */
+  max-width: 480px; /* Limitando a largura máxima da imagem */
   height: auto; /* Altura ajustada automaticamente */
 }
 
@@ -61,6 +62,7 @@
   width: 224px;
   height: 310px;
   position: absolute;
+  bottom: 0; /* Garantindo que comece na borda inferior */
   right: 110px;
   transform: rotate(0.099deg);
   flex-shrink: 0;
@@ -77,6 +79,7 @@
     justify-content: center;
     align-items: center;
     padding-inline: 1rem;
+    min-height: auto; /* Ajuste para altura automática */
   }
 
   .title {
@@ -89,17 +92,18 @@
   }
 
   .imageSection {
-    margin-block: 10rem; /* Espaço maior entre a imagem e o texto */
+    margin-block: 2rem; /* Espaço menor entre a imagem e o texto */
     align-items: center; /* Centralizando a imagem verticalmente */
     height: auto; /* Altura ajustada automaticamente */
   }
 
   .WomanImage {
-    left: 0;
     width: 100%; /* Ajustando a largura da imagem para ocupar toda a tela */
+    max-width: 300px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
+    bottom: -20px; /* Ajuste para alinhar a elipse na parte inferior */
     left: 0;
     right: 0;
     margin: auto; /* Centralizando a elipse */
@@ -119,7 +123,7 @@
   }
 
   .WomanImage {
-    width: 300px;
+    max-width: 250px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
@@ -145,11 +149,11 @@
   }
 
   .imageSection {
-    margin-block: 5rem; /* Espaço maior entre a imagem e o texto */
+    margin-block: 2rem; /* Espaço menor entre a imagem e o texto */
   }
 
   .WomanImage {
-    width: 250px;
+    max-width: 200px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
@@ -171,7 +175,7 @@
   }
 
   .WomanImage {
-    width: 200px;
+    max-width: 180px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
@@ -192,7 +196,7 @@
   }
 
   .WomanImage {
-    width: 250px;
+    max-width: 220px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
@@ -213,7 +217,7 @@
   }
 
   .WomanImage {
-    width: 230px;
+    max-width: 200px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
@@ -234,7 +238,7 @@
   }
 
   .WomanImage {
-    width: 270px;
+    max-width: 230px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {
@@ -255,7 +259,7 @@
   }
 
   .WomanImage {
-    width: 190px;
+    max-width: 160px; /* Limitando a largura máxima da imagem */
   }
 
   .elipse {

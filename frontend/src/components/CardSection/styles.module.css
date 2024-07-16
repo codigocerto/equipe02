@@ -1,48 +1,43 @@
 .section {
   background-color: var(--gray-50);
-  width: 100%; /* Ajustado para ocupar toda a largura disponível */
-  max-width: 1439px; /* Limitado a largura máxima */
-  height: auto; /* Ajustado para altura automática */
-  padding: 50px 20px; /* Ajustado o padding para telas menores */
-  margin: 0 auto; /* Centralizado horizontalmente */
+  width: 100%;
+  max-width: 1439px;
+  height: auto;
+  padding: 50px 20px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 72px 40px; /* Ajuste de padding para telas maiores */
+    padding: 72px 40px;
   }
 }
 
 @media (min-width: 360px) {
-  /* Media query para iPhone SE */
   .section {
     padding: 60px 20px;
   }
 }
 
 @media (min-width: 414px) {
-  /* Media query para iPhone XR */
   .section {
     padding: 70px 30px;
   }
 }
 
 @media (min-width: 390px) and (max-width: 420px) {
-  /* Media query para iPhone 12 Pro e modelos similares */
   .section {
     padding: 70px 40px;
   }
 }
 
 @media (min-width: 428px) {
-  /* Media query para iPhone 14 Pro Max */
   .section {
     padding: 80px 50px;
   }
 }
 
 @media (min-width: 360px) and (max-width: 740px) {
-  /* Media query para Samsung Galaxy S8+ */
   .section {
     padding: 70px 60px;
   }
@@ -51,18 +46,64 @@
 .cardsSectionTitle {
   text-align: left;
   margin: 0;
-  padding-top: 50px; /* Ajustado o espaçamento do topo para telas menores */
-  padding-bottom: 50px; /* Ajustado o espaçamento da parte inferior para telas menores */
-  font-size: 2rem; /* Ajuste de tamanho para telas menores */
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 30px; /* Ajustado para alinhar melhor o título */
+  font-size: 2.5rem;
   font-weight: 700;
   font-family: "Inter", sans-serif;
   color: var(--red-700);
 }
 
+@media (max-width: 1024px) {
+  .cardsSectionTitle {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsSectionTitle {
+    font-size: 2rem;
+    padding-left: 30px; /* Ajuste de padding-left para telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsSectionTitle {
+    font-size: 1.55rem;
+  }
+}
+
 .cards {
   display: flex;
-  flex-wrap: wrap; /* Permitido que as cartas quebrem para baixo em telas menores */
-  justify-content: space-between;
-  gap: 20px; /* Ajustado o espaçamento entre os cartões */
-  margin-bottom: 0; /* Removido o margin-bottom para alinhar com o grid */
+  flex-wrap: wrap;
+  justify-content: space-around; /* Ajustado para afastar os cartões */
+  gap: 20px;
+  margin-bottom: 0;
+  padding-left: 10px; /* Adicionado padding para garantir espaçamento nas bordas */
+  padding-right: 10px; /* Adicionado padding para garantir espaçamento nas bordas */
+}
+
+.card {
+  background: var(--white);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 calc(45% - 20px); /* Ajuste para garantir espaçamento adequado */
+  max-width: 500px;
+  margin: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(100% - 40px); /* Ajustado para garantir espaçamento lateral em telas menores */
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 1 1 calc(100% - 20px); /* Ajustado para garantir espaçamento lateral em telas muito pequenas */
+    max-width: none;
+  }
 }
