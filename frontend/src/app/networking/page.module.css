@@ -1,5 +1,5 @@
 .main {
-  background-color: #141414;
+  background-color: var(--gray-900);
   padding-inline: 2rem;
 }
 
@@ -46,6 +46,8 @@
     drop-shadow(40.26px 46.97px 37.38px #b0b0b00d)
     drop-shadow(71.89px 84.35px 44.09px #b0b0b003)
     drop-shadow(112.15px 131.32px 47.93px #b0b0b000);
+
+  height: auto;
 }
 
 .discordSection p {
@@ -98,6 +100,8 @@
     drop-shadow(40.26px 46.97px 37.38px #b0b0b00d)
     drop-shadow(71.89px 84.35px 44.09px #b0b0b003)
     drop-shadow(112.15px 131.32px 47.93px #b0b0b000);
+
+  height: auto;
 }
 
 .whatsappSection p {
@@ -167,10 +171,16 @@
   gap: 1.4rem;
 }
 
+@media (max-width: 1100px) {
+  .stackCardSection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .cardParaQuemSection {
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
   }
 
   .discordSection,
@@ -178,20 +188,12 @@
     flex-direction: column;
   }
 
-  .stackCardSection {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-items: center;
-  }
-}
-
-@media (max-width: 880px) {
   .titleMuitoMais {
     text-align: center;
   }
 
   .cardMuitoMaisSection {
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -201,6 +203,11 @@
   .whatsappTitle,
   .stackTitle {
     font-size: 2.5rem;
+  }
+
+  .notebookImg,
+  .celularImg {
+    width: 414px;
   }
 }
 

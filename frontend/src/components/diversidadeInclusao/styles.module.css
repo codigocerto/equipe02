@@ -1,8 +1,8 @@
 .section {
   text-align: center;
   padding: 40px 20px;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--gray-950);
+  color: var(--gray-100);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,41 +16,73 @@
 }
 
 .image {
-  max-width: 1120px; /* Largura máxima da imagem */
-  height: 191px; /* Altura da imagem */
   height: auto;
   margin-bottom: 10px; /* Espaçamento entre a imagem e o título */
 }
 
 .title {
-  font-family: 'Inter', sans-serif; /* Fonte Inter para o título */
+  font-family: "Inter", sans-serif; /* Fonte Inter para o título */
   font-size: 2.5rem; /* Tamanho da fonte para o título */
   font-weight: 700; /* Peso da fonte do título */
   line-height: 58.09px; /* Altura da linha do título */
   margin-bottom: 20px; /* Espaçamento abaixo do título */
   max-width: 1120px; /* Largura máxima do título */
-  height: 51px; /* Altura do título */
-  gap: 0px;
-  opacity: 0px;
 }
 
 .textContainer {
   max-width: 600px; /* largura máxima para os textos */
   margin-left: auto;
   margin-right: auto;
-  width: 473px; /* largura do texto */
-  height: 80px; /* altura do texto */
-  gap: 0px;
-  opacity: 0px;
 }
 
 .paragraph {
-  font-family: 'Noto Sans', sans-serif; /* Fonte Noto Sans para os parágrafos */
+  max-width: 473px; /* largura do texto */
+  font-family: "Noto Sans", sans-serif; /* Fonte Noto Sans para os parágrafos */
   font-size: 20px; /* Tamanho da fonte para os parágrafos */
   font-weight: 400; /* Peso da fonte dos parágrafos */
   line-height: 27.24px; /* Altura da linha dos parágrafos */
   text-align: center; /* Alinha os parágrafos centralmente */
-  color: rgba(255, 255, 255, 1); /* Cor de fundo para os parágrafos */
+  color: var(--gray-100); /* Cor de fundo para os parágrafos */
   padding: 10px; /* Adiciona um padding interno para os parágrafos */
   margin-bottom: 50px; /* Espaçamento abaixo dos parágrafos */
+}
+
+@media (max-width: 1140px) {
+  .image {
+    width: 800px;
+  }
+}
+
+@media (max-width: 880px) {
+  .image {
+    width: 600px;
+  }
+}
+
+@media (max-width: 620px) {
+  .image {
+    width: 450px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .paragraph {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 470px) {
+  .image {
+    width: 350px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .paragraph {
+    font-size: 13px;
+  }
 }

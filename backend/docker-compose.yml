@@ -1,0 +1,38 @@
+services:
+  nestapp:
+    container_name: nestapp
+    # image: codigocerto/nestapp:1.0.0
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_TYPE=postgres
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_DB=postgres
+      - PG_PORT=5438
+      - PG_HOST=db
+    depends_on:
+      - pgsql
+
+  pgsql:
+    container_name: pgsql
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: pgsql
+volumes:
+  pgdata: {}

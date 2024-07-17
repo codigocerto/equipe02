@@ -1,3 +1,8 @@
+.cardSectionContainer {
+  background-color: var(--gray-100);
+  padding-inline: 2rem;
+}
+
 .cardsSectionTitle {
   text-align: center;
   margin-top: 4.5rem;
@@ -8,4 +13,12 @@
 .cards {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 980px) {
+  .cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -1,0 +1,66 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: Fixed (1, 440px) px;
+  height: Fixed (621px) px;
+  top: 3319px;
+  padding: 72px 0px 72px 0px;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  color: var(--red-700);
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48.41px;
+  width: 451px;
+  height: 46px;
+}
+
+.sectionContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.texts {
+  max-width: 500px;
+  text-align: left;
+}
+
+.texts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.texts li {
+  /* Textos  */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-family: Noto Sans;
+  font-size: 26px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.texts li .icon {
+  /* Icone de Check */
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.image {
+  max-width: 500px;
+  height: auto;
+  margin-left: 20px;
+  width: 535px;
+  height: 351px;
+}

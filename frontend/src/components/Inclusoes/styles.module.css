@@ -1,0 +1,83 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px; /* Aumentar o espaçamento entre as colunas */
+  padding: 72px 0px 72px 0px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--gray-950);
+  width: Fixed (1, 120px) px;
+  height: Hug (740px) px;
+  top: 2579px;
+  left: 160px;
+}
+
+.imageWrapper {
+  display: grid;
+  grid-template-areas:
+    "image1 image2"
+    "image3 image4";
+  gap: 20px;
+}
+
+.image1 {
+  grid-area: image1;
+  width: 100%;
+  height: auto;
+}
+
+.image2 {
+  grid-area: image2;
+  width: 100%;
+  height: auto;
+}
+
+.image3 {
+  grid-area: image3;
+  width: 100%;
+  height: auto;
+}
+
+.image4 {
+  grid-area: image4;
+  width: 100%;
+  height: auto;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px; /* Aumentar o espaçamento entre os blocos de texto */
+  padding: 0 40px; /* Adicionar padding para afastar o texto das bordas */
+}
+
+.textBlock {
+  margin-bottom: 20px;
+}
+
+.leftAligned {
+  text-align: left; /* Alinhar o texto à esquerda */
+}
+
+.rightAligned {
+  text-align: right; /* Alinhar o texto à direita */
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 36.31px;
+  color: var(--text-color-primary);
+  margin-bottom: 10px;
+}
+
+.text {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
+  color: var(--text-color-primary);
+}

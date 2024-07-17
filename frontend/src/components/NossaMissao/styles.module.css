@@ -1,0 +1,35 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.textContainer {
+  max-width: 600px;
+  margin-right: 20px;
+}
+
+.textContainer h2 {
+  font-size: 2rem;
+  color: var(--red-700);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.textContainer p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.imageContainer {
+  max-width: 400px;
+}
+
+.imageContainer img {
+  max-width: 100%;
+  height: auto;
+}
