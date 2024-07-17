@@ -1,5 +1,5 @@
 import Image from "next/image";
-import WomanImage from "../../../public/images/wonder-woman.png";
+import WomanImage from "/public/images/wonder-woman.png";
 
 import styles from "./styles.module.css";
 

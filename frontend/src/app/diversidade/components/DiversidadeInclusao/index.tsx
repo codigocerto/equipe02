@@ -1,5 +1,5 @@
 import Image from "next/image";
-import imagemInclusao from "../../../public/images/imagem-inclusao.png";
+import imagemInclusao from "/public/images/imagem-inclusao.png";
 import styles from "./styles.module.css";
 
 const DiversidadeInclusao = () => {
