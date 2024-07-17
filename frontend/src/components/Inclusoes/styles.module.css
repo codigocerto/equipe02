@@ -6,13 +6,10 @@
   width: 100%;
   margin: 0 auto;
   background-color: var(--gray-950);
-<<<<<<< HEAD:frontend/src/components/Inclusoes/styles.module.css
-  width: Fixed (1,120px)px;
-  height: Hug (740px)px;
+  width: Fixed (1, 120px) px;
+  height: Hug (740px) px;
   top: 2579px;
   left: 160px;
-=======
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/inclusoes/styles.module.css
 }
 
 .imageWrapper {
@@ -73,11 +70,7 @@
   font-style: italic;
   font-weight: 800;
   line-height: 36.31px;
-<<<<<<< HEAD:frontend/src/components/Inclusoes/styles.module.css
   color: var(--text-color-primary);
-=======
-  color: var(--gray-100);
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/inclusoes/styles.module.css
   margin-bottom: 10px;
 }
 
@@ -86,9 +79,5 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 24.2px;
-<<<<<<< HEAD:frontend/src/components/Inclusoes/styles.module.css
   color: var(--text-color-primary);
-=======
-  color: var(--gray-100);
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/inclusoes/styles.module.css
 }
