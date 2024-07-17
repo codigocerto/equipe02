@@ -76,7 +76,8 @@
 .textContainer {
   max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
   margin-right: 0;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .textContainer h2 {
