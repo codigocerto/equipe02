@@ -7,6 +7,23 @@
   margin: 0 auto;
 }
 
+.cardHeader {
+  margin-bottom: 1.5rem;
+  display: flex; /* Para alinhar a imagem e o título lado a lado */
+  align-items: center; /* Centralizar verticalmente */
+}
+
+.cardHeader h3 {
+  font: 700 2rem "Inter", sans-serif;
+  margin-left: 10px; 
+}
+
+.cardIcon {
+  width: 10px;
+  height: 10px;
+  margin-right: 2px; 
+}
+
 @media (min-width: 768px) {
   .section {
     padding: 72px 40px;
@@ -48,7 +65,7 @@
   margin: 0;
   padding-top: 50px;
   padding-bottom: 50px;
-  padding-left: 30px; /* Ajustado para alinhar melhor o título */
+  padding-left: 95px; /* Ajustado para alinhar melhor o título */
   font-size: 2.5rem;
   font-weight: 700;
   font-family: "Inter", sans-serif;
