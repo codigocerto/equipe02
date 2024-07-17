@@ -26,8 +26,6 @@ const WonderWomanSection = () => {
             src={WomanImage}
             alt="Imagem da Mulher Maravilha"
             className={styles.WomanImage}
-            width={480}
-            height={520}
             quality={100}
             priority
             placeholder="blur" // Adicionei esta linha

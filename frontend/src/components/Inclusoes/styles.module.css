@@ -1,18 +1,53 @@
 .section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px; /* Aumentar o espaçamento entre as colunas */
-  padding: 72px 0px 72px 0px;
-  width: 100%;
+  grid-template-columns: 1fr; /* Uma coluna única por padrão */
+  gap: 20px; /* Espaçamento entre as colunas */
+  padding: 50px 20px; /* Padding ajustado para telas menores */
+  max-width: 100%; /* Ocupar toda a largura disponível */
   margin: 0 auto;
-  background-color: var(--gray-950);
-<<<<<<< HEAD:frontend/src/components/Inclusoes/styles.module.css
-  width: Fixed (1,120px)px;
-  height: Hug (740px)px;
-  top: 2579px;
-  left: 160px;
-=======
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/inclusoes/styles.module.css
+  background-color: var(--gray-900);
+}
+
+@media (min-width: 768px) {
+  .section {
+    grid-template-columns: 1fr 1fr; /* Duas colunas em telas maiores */
+    padding: 72px 40px; /* Padding ajustado para telas maiores */
+  }
+}
+
+@media (min-width: 360px) {
+  /* Media query para iPhone SE */
+  .section {
+    padding: 60px 20px;
+  }
+}
+
+@media (min-width: 414px) {
+  /* Media query para iPhone XR */
+  .section {
+    padding: 70px 30px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 420px) {
+  /* Media query para iPhone 12 Pro e modelos similares */
+  .section {
+    padding: 70px 40px;
+  }
+}
+
+@media (min-width: 428px) {
+  /* Media query para iPhone 14 Pro Max */
+  .section {
+    padding: 80px 50px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 740px) {
+  /* Media query para Samsung Galaxy S8+ */
+  .section {
+    padding: 70px 60px;
+  }
 }
 
 .imageWrapper {
@@ -21,28 +56,10 @@
     "image1 image2"
     "image3 image4";
   gap: 20px;
+  padding: 0 30px; /* Adicionado padding para garantir espaço nas laterais */
 }
 
-.image1 {
-  grid-area: image1;
-  width: 100%;
-  height: auto;
-}
-
-.image2 {
-  grid-area: image2;
-  width: 100%;
-  height: auto;
-}
-
-.image3 {
-  grid-area: image3;
-  width: 100%;
-  height: auto;
-}
-
-.image4 {
-  grid-area: image4;
+.imageWrapper img {
   width: 100%;
   height: auto;
 }
@@ -51,8 +68,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 40px; /* Aumentar o espaçamento entre os blocos de texto */
-  padding: 0 40px; /* Adicionar padding para afastar o texto das bordas */
+  gap: 20px; /* Espaçamento entre os blocos de texto */
+  padding: 0 30px; /* Padding para afastar o texto das bordas */
 }
 
 .textBlock {
@@ -68,27 +85,19 @@
 }
 
 .title {
-  font-family: "Inter", sans-serif;
-  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px; /* Tamanho da fonte ajustado para telas menores */
   font-style: italic;
   font-weight: 800;
-  line-height: 36.31px;
-<<<<<<< HEAD:frontend/src/components/Inclusoes/styles.module.css
+  line-height: 1.5;
   color: var(--text-color-primary);
-=======
-  color: var(--gray-100);
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/inclusoes/styles.module.css
   margin-bottom: 10px;
 }
 
 .text {
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; /* Tamanho da fonte ajustado para telas menores */
   font-weight: 400;
-  line-height: 24.2px;
-<<<<<<< HEAD:frontend/src/components/Inclusoes/styles.module.css
+  line-height: 1.5;
   color: var(--text-color-primary);
-=======
-  color: var(--gray-100);
->>>>>>> 2fb9142e206c4618651064767c9aa02c54759e55:frontend/src/components/inclusoes/styles.module.css
 }

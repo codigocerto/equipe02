@@ -2,27 +2,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 70px 70px;
+  padding: 100px 70px; /* Aumentado o padding para aumentar a altura da seção */
+  gap: 50px; /* Espaçamento entre as colunas */
   max-width: 1200px;
+  margin-top: 10px;
   margin: 0 auto;
+  flex-direction: column; /* Disposição em coluna por padrão */
 }
 
 .textContainer {
   max-width: 600px;
   margin-right: 20px;
+  text-align: left;
 }
 
 .textContainer h2 {
   font-size: 2rem;
   color: var(--red-700);
   margin-bottom: 20px;
-  text-align: left;
 }
 
 .textContainer p {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  text-align: left;
 }
 
 .imageContainer {
@@ -33,3 +35,68 @@
   max-width: 100%;
   height: auto;
 }
+
+@media (min-width: 768px) {
+  .section {
+    flex-direction: row; /* Disposição em linha em telas maiores */
+    padding: 100px 70px; /* Mantido o aumento de padding para telas maiores */
+  }
+}
+
+@media (min-width: 360px) {
+  .section {
+    padding: 80px 30px; /* Ajustado para telas menores */
+  }
+}
+
+@media (min-width: 414px) {
+  .section {
+    padding: 90px 40px; /* Ajustado para iPhone XR */
+  }
+}
+
+@media (min-width: 390px) and (max-width: 420px) {
+  .section {
+    padding: 90px 50px; /* Ajustado para iPhone 12 Pro e similares */
+  }
+}
+
+@media (min-width: 428px) {
+  .section {
+    padding: 100px 60px; /* Ajustado para iPhone 14 Pro Max */
+  }
+}
+
+@media (min-width: 360px) and (max-width: 740px) {
+  .section {
+    padding: 90px 60px; /* Ajustado para Samsung Galaxy S8+ */
+  }
+}
+
+.textContainer {
+  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+.textContainer h2 {
+  font-size: 2rem;
+  color: var(--red-700);
+  margin-bottom: 10px; /* Reduzido o espaço entre o título e o parágrafo */
+}
+
+.textContainer p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.imageContainer {
+  max-width: 100%; /* Ajustado para ocupar toda a largura disponível */
+  text-align: center; /* Centralizado o conteúdo da imagem */
+}
+
+.imageContainer img {
+  max-width: 100%; /* Imagem responsiva ocupando toda a largura disponível */
+  height: auto;
+}
+
