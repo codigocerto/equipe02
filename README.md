@@ -21,6 +21,7 @@
   - Frontend [Carlos Levi](https://www.linkedin.com/in/carlos-levi-099761202/) | [José Carlos](https://www.linkedin.com/in/josecarlos0075/) | [Felipe Maia](https://www.linkedin.com/in/felipe-ma1a)
   - Backend [Caio Cesar](https://www.linkedin.com/in/caiocesarss) | [Carlos Daniel Freitas](https://www.linkedin.com/in/carlos806/) | [Victor Lucena](https://www.linkedin.com/in/victor-lucena-2ba1b6175/)
 - DevOps [Benício Neto](https://www.linkedin.com/in/benicio-neto/) | [Heberton Geovane](https://www.linkedin.com/in/heberton-geovane/)
+- QA [Túlio Santos](https://www.linkedin.com/in/tuliovpsantos/)
 
 ---
 
