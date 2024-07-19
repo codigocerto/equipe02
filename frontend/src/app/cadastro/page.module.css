@@ -1,0 +1,131 @@
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.imageContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.titleContainer {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    color: #E63939;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.paragraphContainer {
+    margin-bottom: 25px;
+}
+
+.form {
+    width: 100%;
+    height: 900px;
+    max-width: 450px;
+    background-color: white;
+    border: 1px solid #5e5e5e;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.formField {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.icon {
+  font-size: 30px;
+  margin-top: 15px; 
+  margin-right: 15px;
+}
+
+
+.formField input {
+    width: calc(100% - 40px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    
+    width: 352px;
+    height: 60px;
+    top: 279px;
+    left: 32px;
+    padding: 15px 228px 15px 16px;
+    gap: 0px;
+    border-radius: 32px;
+    opacity: 0px;
+    background: #FEFEFF;
+}
+
+.submitButton {
+    background-color: red;
+
+    width: 352px;
+    height: 60px;
+    top: 782px;
+    left: 32px;
+    padding: 20px 93px 20px 94px;
+    gap: 0px;
+    opacity: 0px;
+    color: #fff;
+    border: none;
+    padding: 12px 24px; 
+    border-radius: 32px;
+    cursor: pointer;
+    margin-top: 15px;
+
+    font-family: Noto Sans;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+}
+
+.signupLink {
+    margin-top: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: auto;
+}
+
+.checkbox span {
+    margin-left: 5px;
+}
+
+.linkColor {
+    color: #0d8fbf;
+}
+
+@media (max-width: 768px) {
+
+    .imageContainer {
+        margin-top: 500px;
+    }
+
+    .loginContainer {
+        flex-direction: column;
+    }
+}
