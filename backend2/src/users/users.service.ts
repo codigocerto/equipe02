@@ -83,15 +83,17 @@ export class UsersService {
     }
   }
 
-  // async update(id: UUID, updateUserDto: UpdateUserDto): Promise<User> {
-  //   try {
-  //    const user = await this.getUserById(id);
+  async update(id: UUID, updateUserDto: UpdateUserDto): Promise<User> {
+    try {
+      await this.getUserById(id);
 
-  //     return await this.userRepository.update(id, updateUserDto);
-  //   } catch (error) {
-  //     throw new BadRequestException(error.message);
-  //   }
-  // }
+      await this.userRepository.update(id, updateUserDto);
+
+      return await this.getUserById(id);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
 
   async remove(id: UUID): Promise<string> {
     try {
