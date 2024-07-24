@@ -1,5 +1,6 @@
 import { IsArray, IsDateString, IsNotEmpty, IsString } from 'class-validator';
 import { ProjectStatus } from '../enums/project-status.enum';
+import { User } from 'src/users/entities/user.entity';
 
 export class CreateProjectDto {
   @IsNotEmpty()
@@ -15,7 +16,7 @@ export class CreateProjectDto {
   readonly status: ProjectStatus;
 
   @IsNotEmpty()
-  readonly lead: string; //User
+  readonly lead: User; //User
 
   @IsNotEmpty()
   @IsArray()

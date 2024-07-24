@@ -11,16 +11,19 @@ import { Project } from './entities/project.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UUID } from 'crypto';
 import validator from 'validator';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class ProjectService {
   constructor(
     @InjectRepository(Project)
     private projectRepository: Repository<Project>,
+    private readonly usersService: UsersService,
   ) {}
 
   async createProject(createProjectDto: CreateProjectDto) {
     try {
+      console.log('dto service', createProjectDto);
       return await this.projectRepository.save(createProjectDto);
     } catch (error) {
       throw new BadRequestException(error.message);

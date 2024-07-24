@@ -1,7 +1,14 @@
 import { Exclude } from 'class-transformer';
 import { UUID } from 'crypto';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { UserRoles } from '../enums/user-role.enum';
+import { Project } from 'src/project/entities/project.entity';
 
 @Entity('user')
 export class User {
@@ -32,4 +39,7 @@ export class User {
 
   @Column('text') // { unique: true })
   website?: string;
+
+  @OneToMany((_type) => Project, (project) => project.lead, { eager: true })
+  projects: Project[];
 }
