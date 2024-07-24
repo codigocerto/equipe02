@@ -13,6 +13,7 @@ import { ProjectService } from './project.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
 import { UUID } from 'crypto';
+import { ProjectStatusValidation } from './pipes/project-status-validation.pipe';
 
 @Controller('project')
 export class ProjectController {
@@ -20,7 +21,7 @@ export class ProjectController {
 
   @Post()
   @UsePipes(ValidationPipe)
-  create(@Body() createProjectDto: CreateProjectDto) {
+  create(@Body(ProjectStatusValidation) createProjectDto: CreateProjectDto) {
     return this.projectService.createProject(createProjectDto);
   }
 
@@ -37,7 +38,7 @@ export class ProjectController {
   @Patch(':id')
   updateProject(
     @Param('id') id: UUID,
-    @Body() updateProjectDto: UpdateProjectDto,
+    @Body(ProjectStatusValidation) updateProjectDto: UpdateProjectDto,
   ) {
     return this.projectService.updateProject(id, updateProjectDto);
   }

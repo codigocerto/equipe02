@@ -46,7 +46,7 @@ export class ProjectService {
   async findProjectById(id: UUID) {
     try {
       if (!validator.isUUID(id)) {
-        throw new BadRequestException('ID de produto inválido.');
+        throw new BadRequestException('ID inválido.');
       }
 
       const project = await this.projectRepository.findOne({
