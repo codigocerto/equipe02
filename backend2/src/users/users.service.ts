@@ -23,16 +23,16 @@ export class UsersService {
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
 
-  async createUser(userDto: CreateUserDto): Promise<User> {
+  async createUser(createUserDto: CreateUserDto): Promise<User> {
     try {
-      const checkEmailUser = await this.findByEmail(userDto.email);
+      const checkEmailUser = await this.findByEmail(createUserDto.email);
 
       const checkLinkedinUser = await this.userRepository.findOne({
-        where: { linkedin: userDto.linkedin },
+        where: { linkedin: createUserDto.linkedin },
       });
 
       const checkGitHubUser = await this.userRepository.findOne({
-        where: { github: userDto.github },
+        where: { github: createUserDto.github },
       });
 
       if (checkEmailUser) throw new ConflictException('Usuário já cadastrado!');
@@ -42,7 +42,7 @@ export class UsersService {
 
       if (checkGitHubUser) throw new ConflictException('GitHub já cadastrado!');
 
-      return this.userRepository.save(userDto);
+      return this.userRepository.save(createUserDto);
     } catch (error) {
       throw new BadRequestException(error.message);
     }

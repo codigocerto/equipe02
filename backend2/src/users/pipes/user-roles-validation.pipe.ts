@@ -5,7 +5,7 @@ export class UserRolesValidation {
   readonly statusArr = [UserRoles.ADMIN, UserRoles.COMMON, UserRoles.GUEST];
 
   transform(value: any) {
-    const status = value.status;
+    const status = value.role;
     if (!this.checkStatus(status)) {
       throw new BadRequestException(`${status} não é um status válido`);
     }
