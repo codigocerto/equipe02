@@ -4,6 +4,7 @@ import { ProjectModule } from './project/project.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmConfigModule } from './configs/typeOrmConfig.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    UsersModule,
   ],
   controllers: [],
   providers: [],

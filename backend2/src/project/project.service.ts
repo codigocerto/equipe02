@@ -11,16 +11,19 @@ import { Project } from './entities/project.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UUID } from 'crypto';
 import validator from 'validator';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class ProjectService {
   constructor(
     @InjectRepository(Project)
     private projectRepository: Repository<Project>,
+    private readonly usersService: UsersService,
   ) {}
 
   async createProject(createProjectDto: CreateProjectDto) {
     try {
+      console.log('dto service', createProjectDto);
       return await this.projectRepository.save(createProjectDto);
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -46,7 +49,7 @@ export class ProjectService {
   async findProjectById(id: UUID) {
     try {
       if (!validator.isUUID(id)) {
-        throw new BadRequestException('ID de produto inválido.');
+        throw new BadRequestException('ID inválido.');
       }
 
       const project = await this.projectRepository.findOne({
