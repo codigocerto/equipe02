@@ -4,40 +4,34 @@ import {
   Column,
   Entity,
   JoinColumn,
-  JoinTable,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { ProjectStatus } from '../enums/project-status.enum';
 import { User } from 'src/users/entities/user.entity';
+import { TeamStack } from '../enum/team-stack.enum';
 
-@Entity('project')
-export class Project {
+@Entity('team')
+export class Team {
   @PrimaryGeneratedColumn('uuid')
   id?: UUID;
 
-  @Column('text')
-  title: string;
-
-  @Column('text')
-  description: string;
-
   @Column({
     type: 'enum',
-    enum: ProjectStatus,
+    enum: TeamStack,
   })
-  status: ProjectStatus;
+  team_stack: TeamStack;
+
+  @ManyToOne((_type) => User, (user) => user.projects, { eager: false })
+  lead: User;
+
+  @ManyToOne((_type) => User, (user) => user.projects, { eager: false })
+  members: User;
 
   @Column('date')
   created_at: Date;
 
-  @ManyToOne(() => User, (user) => user.projects, { eager: false })
-  @JoinTable()
-  lead: User;
-
-  @Column('text')
-  teams: string; //Teams[]
+  // @Column('text')
 
   @Column('date')
   finished_at: Date;

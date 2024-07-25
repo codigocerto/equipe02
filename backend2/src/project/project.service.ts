@@ -23,8 +23,15 @@ export class ProjectService {
 
   async createProject(createProjectDto: CreateProjectDto) {
     try {
-      console.log('dto service', createProjectDto);
-      return await this.projectRepository.save(createProjectDto);
+      const userLeadId = await this.usersService.getUserById(
+        createProjectDto.leadId,
+      );
+
+      const newProject = createProjectDto;
+
+      newProject.lead = userLeadId;
+
+      return await this.projectRepository.save(newProject);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -54,11 +61,13 @@ export class ProjectService {
 
       const project = await this.projectRepository.findOne({
         where: { id },
+        relations: ['lead'],
       });
 
       if (!project) {
         throw new NotFoundException('Projeto não encontrado...');
       }
+      console.log(project);
 
       return project;
     } catch (error) {
