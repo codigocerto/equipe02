@@ -4,6 +4,8 @@ import {
   Column,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -22,17 +24,15 @@ export class Team {
   })
   team_stack: TeamStack;
 
-  @ManyToOne((_type) => User, (user) => user.projects, { eager: false })
+  // @ManyToOne(() => User, (user) => user.id, { eager: false })
+  // lead: User;
+
+  // @ManyToMany(() => User, (user) => user.teams, { eager: false })
+  // members: User[];
+  @ManyToOne(() => User, (user) => user.teams, { eager: false })
   lead: User;
 
-  @ManyToOne((_type) => User, (user) => user.projects, { eager: false })
-  members: User;
-
-  @Column('date')
-  created_at: Date;
-
-  // @Column('text')
-
-  @Column('date')
-  finished_at: Date;
+  @ManyToMany(() => User, (user) => user.teams, { eager: false })
+  @JoinTable()
+  members: User[];
 }

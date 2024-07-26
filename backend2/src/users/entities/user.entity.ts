@@ -42,9 +42,14 @@ export class User {
   @Column('text') // { unique: true })
   website?: string;
 
+  // @OneToMany(() => Project, (project) => project.lead)
+  // projects?: Project[];
+
+  // @ManyToMany(() => Team, (team) => team.id, { eager: true })
+  // teams?: Team[];
   @OneToMany(() => Project, (project) => project.lead)
   projects?: Project[];
 
-  // @ManyToMany((_type) => Team, { eager: true })
-  // teams?: Team[];
+  @ManyToMany(() => Team, (team) => team.members, { eager: true })
+  teams?: Team[];
 }

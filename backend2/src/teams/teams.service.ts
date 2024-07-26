@@ -1,30 +1,75 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateTeamDto } from './dto/create-team.dto';
 import { UpdateTeamDto } from './dto/update-team.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Team } from './entities/team.entity';
 import { Repository } from 'typeorm';
+import { UUID } from 'crypto';
+import validator from 'validator';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class TeamsService {
   constructor(
     @InjectRepository(Team)
     private teamRepository: Repository<Team>,
+    private readonly userService: UsersService,
   ) {}
-  async create(createTeamDto: CreateTeamDto) {
+
+  async createTeam(createTeamDto: CreateTeamDto) {
     try {
-      // return await this.teamRepository.create(createTeamDto);
+      const lead = await this.userService.getUserById(createTeamDto.leadId);
+
+      createTeamDto.lead = lead;
+
+      return await this.teamRepository.save(createTeamDto);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
   }
 
-  findAll() {
-    return `This action returns all teams`;
+  async findAll() {
+    try {
+      const teams = await this.teamRepository.find({ relations: ['lead'] });
+      console.log(teams);
+      if (teams.length === 0) {
+        throw new NotFoundException(`Não há equipes cadastrados...`);
+      }
+
+      return teams;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw new InternalServerErrorException();
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} team`;
+  async findTeamById(id: UUID) {
+    try {
+      if (!validator.isUUID(id)) {
+        throw new BadRequestException('ID inválido.');
+      }
+
+      const team = await this.teamRepository.findOne({
+        where: { id },
+        relations: ['lead'],
+      });
+
+      if (!team) {
+        throw new NotFoundException('Projeto não encontrado...');
+      }
+      console.log(team);
+
+      return team;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
   }
 
   update(id: number, updateTeamDto: UpdateTeamDto) {

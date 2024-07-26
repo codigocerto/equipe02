@@ -43,8 +43,6 @@ export class UsersService {
 
       if (checkGitHubUser) throw new ConflictException('GitHub já cadastrado!');
 
-      // console.log(createUserDto);
-      // return this.userRepository.save(createUserDto);
       const user = this.userRepository.create(createUserDto);
       const savedUser = await this.userRepository.save(user);
 
