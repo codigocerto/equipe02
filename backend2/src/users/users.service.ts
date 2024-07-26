@@ -16,6 +16,7 @@ import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import validator from 'validator';
+import { plainToClass } from 'class-transformer';
 @Injectable()
 export class UsersService {
   logger = new Logger(UsersService.name);
@@ -42,7 +43,12 @@ export class UsersService {
 
       if (checkGitHubUser) throw new ConflictException('GitHub já cadastrado!');
 
-      return this.userRepository.save(createUserDto);
+      // console.log(createUserDto);
+      // return this.userRepository.save(createUserDto);
+      const user = this.userRepository.create(createUserDto);
+      const savedUser = await this.userRepository.save(user);
+
+      return plainToClass(User, savedUser);
     } catch (error) {
       throw new BadRequestException(error.message);
     }

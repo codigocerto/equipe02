@@ -23,13 +23,13 @@ export class ProjectService {
 
   async createProject(createProjectDto: CreateProjectDto) {
     try {
-      const userLeadId = await this.usersService.getUserById(
+      const userLead = await this.usersService.getUserById(
         createProjectDto.leadId,
       );
 
       const newProject = createProjectDto;
 
-      newProject.lead = userLeadId;
+      newProject.lead = userLead;
 
       return await this.projectRepository.save(newProject);
     } catch (error) {
@@ -39,7 +39,9 @@ export class ProjectService {
 
   async findAllProjects(): Promise<Project[]> {
     try {
-      const projects = await this.projectRepository.find();
+      const projects = await this.projectRepository.find({
+        relations: ['lead'],
+      });
 
       if (projects.length === 0) {
         throw new NotFoundException(
