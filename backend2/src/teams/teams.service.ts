@@ -12,6 +12,7 @@ import { Repository } from 'typeorm';
 import { UUID } from 'crypto';
 import validator from 'validator';
 import { UsersService } from 'src/users/users.service';
+import { User } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class TeamsService {
@@ -24,8 +25,15 @@ export class TeamsService {
   async createTeam(createTeamDto: CreateTeamDto) {
     try {
       const lead = await this.userService.getUserById(createTeamDto.leadId);
-
       createTeamDto.lead = lead;
+
+      createTeamDto.members = [];
+
+      createTeamDto.members = await Promise.all(
+        createTeamDto.membersId.map(async (id) => {
+          return this.userService.getUserById(id);
+        }),
+      );
 
       return await this.teamRepository.save(createTeamDto);
     } catch (error) {
@@ -35,8 +43,10 @@ export class TeamsService {
 
   async findAll() {
     try {
-      const teams = await this.teamRepository.find({ relations: ['lead'] });
-      console.log(teams);
+      const teams = await this.teamRepository.find({
+        // relations: ['lead', 'members'],
+      });
+
       if (teams.length === 0) {
         throw new NotFoundException(`Não há equipes cadastrados...`);
       }
@@ -58,7 +68,7 @@ export class TeamsService {
 
       const team = await this.teamRepository.findOne({
         where: { id },
-        relations: ['lead'],
+        relations: ['lead', 'members'],
       });
 
       if (!team) {

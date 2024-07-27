@@ -6,12 +6,13 @@ import { UUID } from 'crypto';
 export class CreateTeamDto {
   @IsNotEmpty()
   @IsArray()
-  readonly memberIds: UUID[];
+  membersId: UUID[];
 
   @IsNotEmpty()
   leadId: UUID;
 
   lead: User;
+  members: User[];
 
   @IsNotEmpty()
   @IsString()
