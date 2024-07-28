@@ -74,7 +74,6 @@ export class TeamsService {
       if (!team) {
         throw new NotFoundException('Projeto não encontrado...');
       }
-      console.log(team);
 
       return team;
     } catch (error) {

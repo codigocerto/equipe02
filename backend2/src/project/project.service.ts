@@ -12,6 +12,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UUID } from 'crypto';
 import validator from 'validator';
 import { UsersService } from 'src/users/users.service';
+import { TeamsService } from 'src/teams/teams.service';
 
 @Injectable()
 export class ProjectService {
@@ -19,6 +20,7 @@ export class ProjectService {
     @InjectRepository(Project)
     private projectRepository: Repository<Project>,
     private readonly usersService: UsersService,
+    private readonly teamsService: TeamsService,
   ) {}
 
   async createProject(createProjectDto: CreateProjectDto) {
@@ -28,8 +30,15 @@ export class ProjectService {
       );
 
       const newProject = createProjectDto;
-
       newProject.lead = userLead;
+
+      newProject.teams = [];
+      newProject.teams = await Promise.all(
+        newProject.teamsId.map(async (id) => {
+          return this.teamsService.findTeamById(id);
+        }),
+      );
+      console.log('TIME', newProject.teams);
 
       return await this.projectRepository.save(newProject);
     } catch (error) {
@@ -40,7 +49,7 @@ export class ProjectService {
   async findAllProjects(): Promise<Project[]> {
     try {
       const projects = await this.projectRepository.find({
-        relations: ['lead'],
+        relations: ['lead', 'teams'],
       });
 
       if (projects.length === 0) {
@@ -63,13 +72,12 @@ export class ProjectService {
 
       const project = await this.projectRepository.findOne({
         where: { id },
-        relations: ['lead'],
+        relations: ['lead', 'teams'],
       });
 
       if (!project) {
         throw new NotFoundException('Projeto não encontrado...');
       }
-      console.log(project);
 
       return project;
     } catch (error) {

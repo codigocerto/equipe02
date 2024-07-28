@@ -8,6 +8,7 @@ import {
 import { ProjectStatus } from '../enums/project-status.enum';
 import { User } from 'src/users/entities/user.entity';
 import { UUID } from 'crypto';
+import { Team } from 'src/teams/entities/team.entity';
 
 export class CreateProjectDto {
   @IsNotEmpty()
@@ -29,9 +30,11 @@ export class CreateProjectDto {
   // @IsNotEmpty()
   lead: User;
 
-  @IsNotEmpty()
   @IsArray()
-  readonly teams: string; //Teams[]
+  // @IsUUID()
+  teamsId: UUID[]; //Teams[]
+
+  teams: Team[];
 
   @IsNotEmpty()
   @IsDateString()

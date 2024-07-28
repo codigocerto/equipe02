@@ -12,6 +12,7 @@ import {
 } from 'typeorm';
 import { User } from 'src/users/entities/user.entity';
 import { TeamStack } from '../enum/team-stack.enum';
+import { Project } from 'src/project/entities/project.entity';
 
 @Entity('team')
 export class Team {
@@ -35,4 +36,8 @@ export class Team {
   @ManyToMany(() => User, (user) => user.teams, { eager: false })
   @JoinTable()
   members: User[];
+
+  @ManyToMany(() => Project, (project) => project.teams, { eager: false })
+  @JoinTable()
+  projects: Project[];
 }

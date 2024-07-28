@@ -23,7 +23,6 @@ export class ProjectController {
   @Post()
   @UsePipes(ValidationPipe)
   create(@Body(ProjectStatusValidation) createProjectDto: CreateProjectDto) {
-    console.log('CONTROLLER', createProjectDto);
     return this.projectService.createProject(createProjectDto);
   }
 
