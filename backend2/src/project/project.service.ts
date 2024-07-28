@@ -89,7 +89,8 @@ export class ProjectService {
     try {
       await this.findProjectById(id);
 
-      return await this.projectRepository.update(id, updateProjectDto);
+      await this.projectRepository.update(id, updateProjectDto);
+      return 'Projeto atualizado.';
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -99,7 +100,12 @@ export class ProjectService {
     try {
       const project = await this.findProjectById(id);
 
-      return await this.projectRepository.delete(project);
+      project.teams = [];
+      project.lead = null;
+
+      await this.projectRepository.save(project);
+
+      return await this.projectRepository.delete((project.id = id));
     } catch (error) {
       throw new BadRequestException(error.message);
     }
