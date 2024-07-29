@@ -14,6 +14,7 @@ import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
 import { UUID } from 'crypto';
 import { ProjectStatusValidation } from './pipes/project-status-validation.pipe';
+import { Project } from './entities/project.entity';
 
 @Controller('project')
 export class ProjectController {
@@ -22,18 +23,17 @@ export class ProjectController {
   @Post()
   @UsePipes(ValidationPipe)
   create(@Body(ProjectStatusValidation) createProjectDto: CreateProjectDto) {
-    console.log(createProjectDto.lead);
     return this.projectService.createProject(createProjectDto);
   }
 
   @Get()
-  findAll() {
-    return this.projectService.findAllProjects();
+  async findAll(): Promise<Project[]> {
+    return await this.projectService.findAllProjects();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: UUID) {
-    return this.projectService.findProjectById(id);
+  async findOne(@Param('id') id: UUID): Promise<Project> {
+    return await this.projectService.findProjectById(id);
   }
 
   @Patch(':id')

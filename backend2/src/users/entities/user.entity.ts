@@ -3,12 +3,14 @@ import { UUID } from 'crypto';
 import {
   Column,
   Entity,
+  ManyToMany,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { UserRoles } from '../enums/user-role.enum';
 import { Project } from 'src/project/entities/project.entity';
+import { Team } from 'src/teams/entities/team.entity';
 
 @Entity('user')
 export class User {
@@ -40,6 +42,14 @@ export class User {
   @Column('text') // { unique: true })
   website?: string;
 
-  @OneToMany((_type) => Project, (project) => project.lead, { eager: true })
-  projects: Project[];
+  // @OneToMany(() => Project, (project) => project.lead)
+  // projects?: Project[];
+
+  // @ManyToMany(() => Team, (team) => team.id, { eager: true })
+  // teams?: Team[];
+  @OneToMany(() => Project, (project) => project.lead)
+  projects?: Project[];
+
+  @ManyToMany(() => Team, (team) => team.members, { eager: true })
+  teams?: Team[];
 }

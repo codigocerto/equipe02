@@ -12,6 +12,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UUID } from 'crypto';
 import validator from 'validator';
 import { UsersService } from 'src/users/users.service';
+import { TeamsService } from 'src/teams/teams.service';
 
 @Injectable()
 export class ProjectService {
@@ -19,12 +20,27 @@ export class ProjectService {
     @InjectRepository(Project)
     private projectRepository: Repository<Project>,
     private readonly usersService: UsersService,
+    private readonly teamsService: TeamsService,
   ) {}
 
   async createProject(createProjectDto: CreateProjectDto) {
     try {
-      console.log('dto service', createProjectDto);
-      return await this.projectRepository.save(createProjectDto);
+      const userLead = await this.usersService.getUserById(
+        createProjectDto.leadId,
+      );
+
+      const newProject = createProjectDto;
+      newProject.lead = userLead;
+
+      newProject.teams = [];
+      newProject.teams = await Promise.all(
+        newProject.teamsId.map(async (id) => {
+          return this.teamsService.getTeamById(id);
+        }),
+      );
+      console.log('TIME', newProject.teams);
+
+      return await this.projectRepository.save(newProject);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -32,7 +48,9 @@ export class ProjectService {
 
   async findAllProjects(): Promise<Project[]> {
     try {
-      const projects = await this.projectRepository.find();
+      const projects = await this.projectRepository.find({
+        relations: ['lead', 'teams'],
+      });
 
       if (projects.length === 0) {
         throw new NotFoundException(
@@ -54,6 +72,7 @@ export class ProjectService {
 
       const project = await this.projectRepository.findOne({
         where: { id },
+        relations: ['lead', 'teams'],
       });
 
       if (!project) {
@@ -69,8 +88,9 @@ export class ProjectService {
   async updateProject(id: UUID, updateProjectDto: UpdateProjectDto) {
     try {
       await this.findProjectById(id);
-
-      return await this.projectRepository.update(id, updateProjectDto);
+      console.log(updateProjectDto.teams);
+      // await this.projectRepository.update(id, updateProjectDto);
+      return { message: 'Projeto atualizado.' };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -80,7 +100,9 @@ export class ProjectService {
     try {
       const project = await this.findProjectById(id);
 
-      return await this.projectRepository.delete(project);
+      await this.projectRepository.delete({ id: project.id });
+
+      return { message: 'Projeto excluído.' };
     } catch (error) {
       throw new BadRequestException(error.message);
     }

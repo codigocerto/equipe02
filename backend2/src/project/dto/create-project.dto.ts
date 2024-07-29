@@ -1,6 +1,14 @@
-import { IsArray, IsDateString, IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsArray,
+  IsDateString,
+  IsNotEmpty,
+  IsString,
+  IsUUID,
+} from 'class-validator';
 import { ProjectStatus } from '../enums/project-status.enum';
 import { User } from 'src/users/entities/user.entity';
+import { UUID } from 'crypto';
+import { Team } from 'src/teams/entities/team.entity';
 
 export class CreateProjectDto {
   @IsNotEmpty()
@@ -16,11 +24,17 @@ export class CreateProjectDto {
   readonly status: ProjectStatus;
 
   @IsNotEmpty()
-  readonly lead: User; //User
+  @IsUUID()
+  leadId: UUID; //User
 
-  @IsNotEmpty()
+  // @IsNotEmpty()
+  lead: User;
+
   @IsArray()
-  readonly teams: string; //Teams[]
+  // @IsUUID()
+  teamsId: UUID[]; //Teams[]
+
+  teams: Team[];
 
   @IsNotEmpty()
   @IsDateString()

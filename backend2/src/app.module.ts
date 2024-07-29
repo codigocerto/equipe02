@@ -5,6 +5,9 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmConfigModule } from './configs/typeOrmConfig.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import { TeamsModule } from './teams/teams.module';
+import { Project } from './project/entities/project.entity';
+import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
@@ -19,9 +22,11 @@ import { UsersModule } from './users/users.module';
       password: process.env.PG_PASSWORD,
       database: process.env.PG_DB,
       autoLoadEntities: true,
+      entities: [Project, User],
       synchronize: true,
     }),
     UsersModule,
+    TeamsModule,
   ],
   controllers: [],
   providers: [],

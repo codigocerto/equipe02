@@ -32,7 +32,7 @@ export class CreateUserDto {
     example: 'Senha@123',
     description: 'Senha utilizada para login na plataforma',
   })
-  readonly password: string;
+  password: string;
 
   @ApiProperty({
     example: 'github.com/JoãoSilva',
