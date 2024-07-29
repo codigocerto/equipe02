@@ -107,28 +107,29 @@ export class ProjectService {
   async updateProject(id: UUID, updateProjectDto: UpdateProjectDto) {
     try {
       const project = await this.findProjectById(id);
-      console.log(project);
 
-      // Obtenha os times existentes
-      const currentTeams = project.teams || [];
+      if (updateProjectDto.teamsId) {
+        const currentTeams = project.teams || [];
 
-      // Obtenha os novos times a partir dos IDs fornecidos
-      const newTeams = await Promise.all(
-        updateProjectDto.teamsId.map(async (id) => {
-          return this.teamsService.getTeamById(id);
-        }),
-      );
+        // Obtenha os novos times a partir dos IDs fornecidos
+        const newTeams = await Promise.all(
+          updateProjectDto.teamsId.map(async (id) => {
+            return this.teamsService.getTeamById(id);
+          }),
+        );
 
-      // Combine os times existentes com os novos, evitando duplicatas
-      const updatedTeams = [...currentTeams, ...newTeams].filter(
-        (team, index, self) =>
-          index === self.findIndex((t) => t.id === team.id),
-      );
+        // Combine os times existentes com os novos, evitando duplicatas
+        const updatedTeams = [...currentTeams, ...newTeams].filter(
+          (team, index, self) =>
+            index === self.findIndex((t) => t.id === team.id),
+        );
 
-      project.teams = updatedTeams;
+        project.teams = updatedTeams;
+        const updatedProject = await this.projectRepository.save(project);
+        return updatedProject;
+      }
 
-      const updatedProject = await this.projectRepository.save(project);
-      return updatedProject;
+      return await this.projectRepository.update(id, updateProjectDto);
     } catch (error) {
       throw new BadRequestException(error.message);
     }

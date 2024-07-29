@@ -22,7 +22,7 @@ export class TeamsService {
     private readonly userService: UsersService,
   ) {}
 
-  async createTeam(createTeamDto: CreateTeamDto) {
+  async createTeam(createTeamDto: CreateTeamDto): Promise<Team> {
     try {
       const lead = await this.userService.getUserById(createTeamDto.leadId);
       createTeamDto.lead = lead;
@@ -41,10 +41,10 @@ export class TeamsService {
     }
   }
 
-  async getAllTeams() {
+  async getAllTeams(): Promise<Team[]> {
     try {
       const teams = await this.teamRepository.find({
-        // relations: ['lead', 'members'],
+        relations: ['lead', 'members'],
       });
 
       if (teams.length === 0) {
@@ -60,7 +60,7 @@ export class TeamsService {
     }
   }
 
-  async getTeamById(id: UUID) {
+  async getTeamById(id: UUID): Promise<Team> {
     try {
       if (!validator.isUUID(id)) {
         throw new BadRequestException('ID inválido.');
@@ -83,11 +83,32 @@ export class TeamsService {
 
   async updateTeam(id: UUID, updateTeamDto: UpdateTeamDto) {
     try {
-      await this.getTeamById(id);
+      const team = await this.getTeamById(id);
 
-      console.log(updateTeamDto);
+      if (updateTeamDto.membersId) {
+        const currentMembers = team.members || [];
 
-      // await this.teamRepository.update(id, updateTeamDto);
+        // Obtenha os novos times a partir dos IDs fornecidos
+        const newMembers = await Promise.all(
+          updateTeamDto.membersId.map(async (id) => {
+            return this.userService.getUserById(id);
+          }),
+        );
+
+        // Combine os times existentes com os novos, evitando duplicatas
+        const updatedMembers = [...currentMembers, ...newMembers].filter(
+          (member, index, self) =>
+            index === self.findIndex((m) => m.id === member.id),
+        );
+
+        team.members = updatedMembers;
+
+        const updatedTeam = await this.teamRepository.save(team);
+        return updatedTeam;
+      }
+
+      return await this.teamRepository.update(id, updateTeamDto);
+      // Obtenha os times existentes
     } catch (error) {
       throw new BadRequestException(error.message);
     }
