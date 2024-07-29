@@ -22,22 +22,25 @@ export class TeamsController {
   }
 
   @Get()
-  findAll() {
-    return this.teamsService.findAll();
+  async getAllTeams() {
+    return await this.teamsService.getAllTeams();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: UUID) {
-    return this.teamsService.findTeamById(id);
+  async getTeamById(@Param('id') id: UUID) {
+    return await this.teamsService.getTeamById(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTeamDto: UpdateTeamDto) {
-    return this.teamsService.update(+id, updateTeamDto);
+  async updateTeam(
+    @Param('id') id: UUID,
+    @Body() updateTeamDto: UpdateTeamDto,
+  ) {
+    return this.teamsService.updateTeam(id, updateTeamDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.teamsService.remove(+id);
+  async deleteTeam(@Param('id') id: UUID) {
+    return this.teamsService.deleteTeam(id);
   }
 }

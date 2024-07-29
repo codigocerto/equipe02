@@ -35,7 +35,7 @@ export class ProjectService {
       newProject.teams = [];
       newProject.teams = await Promise.all(
         newProject.teamsId.map(async (id) => {
-          return this.teamsService.findTeamById(id);
+          return this.teamsService.getTeamById(id);
         }),
       );
       console.log('TIME', newProject.teams);
@@ -88,9 +88,9 @@ export class ProjectService {
   async updateProject(id: UUID, updateProjectDto: UpdateProjectDto) {
     try {
       await this.findProjectById(id);
-
-      await this.projectRepository.update(id, updateProjectDto);
-      return 'Projeto atualizado.';
+      console.log(updateProjectDto.teams);
+      // await this.projectRepository.update(id, updateProjectDto);
+      return { message: 'Projeto atualizado.' };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -100,12 +100,9 @@ export class ProjectService {
     try {
       const project = await this.findProjectById(id);
 
-      project.teams = [];
-      project.lead = null;
+      await this.projectRepository.delete({ id: project.id });
 
-      await this.projectRepository.save(project);
-
-      return await this.projectRepository.delete((project.id = id));
+      return { message: 'Projeto excluído.' };
     } catch (error) {
       throw new BadRequestException(error.message);
     }

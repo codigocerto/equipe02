@@ -41,7 +41,7 @@ export class TeamsService {
     }
   }
 
-  async findAll() {
+  async getAllTeams() {
     try {
       const teams = await this.teamRepository.find({
         // relations: ['lead', 'members'],
@@ -60,7 +60,7 @@ export class TeamsService {
     }
   }
 
-  async findTeamById(id: UUID) {
+  async getTeamById(id: UUID) {
     try {
       if (!validator.isUUID(id)) {
         throw new BadRequestException('ID inválido.');
@@ -81,11 +81,26 @@ export class TeamsService {
     }
   }
 
-  update(id: number, updateTeamDto: UpdateTeamDto) {
-    return `This action updates a #${id} team`;
+  async updateTeam(id: UUID, updateTeamDto: UpdateTeamDto) {
+    try {
+      await this.getTeamById(id);
+
+      console.log(updateTeamDto);
+
+      // await this.teamRepository.update(id, updateTeamDto);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} team`;
+  async deleteTeam(id: UUID) {
+    try {
+      const team = await this.getTeamById(id);
+
+      await this.teamRepository.delete({ id: team.id });
+      return { message: 'Time excluído' };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
   }
 }
