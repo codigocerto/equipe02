@@ -11,6 +11,7 @@ export class UpdateProjectDto extends PartialType(CreateProjectDto) {
   readonly status?: ProjectStatus;
   readonly lead?: User;
   // readonly lead?: string;
-  readonly teams?: Team[];
+  readonly teamsId: UUID[];
+  teams?: Team[];
   readonly finished_at?: Date;
 }

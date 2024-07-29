@@ -72,7 +72,7 @@ export class TeamsService {
       });
 
       if (!team) {
-        throw new NotFoundException('Projeto não encontrado...');
+        throw new NotFoundException('Time não encontrado...');
       }
 
       return team;
