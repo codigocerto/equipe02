@@ -13,6 +13,7 @@ import { UUID } from 'crypto';
 import validator from 'validator';
 import { UsersService } from 'src/users/users.service';
 import { TeamsService } from 'src/teams/teams.service';
+import { AwsService } from 'src/aws/aws.service';
 
 @Injectable()
 export class ProjectService {
@@ -21,26 +22,36 @@ export class ProjectService {
     private projectRepository: Repository<Project>,
     private readonly usersService: UsersService,
     private readonly teamsService: TeamsService,
+    private readonly awsService: AwsService,
   ) {}
 
-  async createProject(createProjectDto: CreateProjectDto) {
+  async createProject(createProjectDto: CreateProjectDto, file: any) {
     try {
+      console.log(createProjectDto);
+
       const userLead = await this.usersService.getUserById(
         createProjectDto.leadId,
       );
 
-      const newProject = createProjectDto;
-      newProject.lead = userLead;
+      createProjectDto.lead = userLead;
 
-      newProject.teams = [];
-      newProject.teams = await Promise.all(
-        newProject.teamsId.map(async (id) => {
+      createProjectDto.teams = [];
+      createProjectDto.teams = await Promise.all(
+        createProjectDto.teamsId.map(async (id) => {
           return this.teamsService.getTeamById(id);
         }),
       );
-      console.log('TIME', newProject.teams);
+      const newProject = await this.projectRepository.save(createProjectDto);
+      console.log(newProject.id);
+      const urlProjectPhoto = await this.awsService.uploadFile(
+        file,
+        newProject.id,
+      );
 
-      return await this.projectRepository.save(newProject);
+      newProject.urlPhoto = urlProjectPhoto.url;
+
+      await this.projectRepository.save(newProject);
+      return newProject;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -87,10 +98,30 @@ export class ProjectService {
 
   async updateProject(id: UUID, updateProjectDto: UpdateProjectDto) {
     try {
-      await this.findProjectById(id);
-      console.log(updateProjectDto.teams);
-      // await this.projectRepository.update(id, updateProjectDto);
-      return { message: 'Projeto atualizado.' };
+      const project = await this.findProjectById(id);
+
+      if (updateProjectDto.teamsId) {
+        const currentTeams = project.teams || [];
+
+        // Obtenha os novos times a partir dos IDs fornecidos
+        const newTeams = await Promise.all(
+          updateProjectDto.teamsId.map(async (id) => {
+            return this.teamsService.getTeamById(id);
+          }),
+        );
+
+        // Combine os times existentes com os novos, evitando duplicatas
+        const updatedTeams = [...currentTeams, ...newTeams].filter(
+          (team, index, self) =>
+            index === self.findIndex((t) => t.id === team.id),
+        );
+
+        project.teams = updatedTeams;
+        const updatedProject = await this.projectRepository.save(project);
+        return updatedProject;
+      }
+
+      return await this.projectRepository.update(id, updateProjectDto);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -106,5 +137,19 @@ export class ProjectService {
     } catch (error) {
       throw new BadRequestException(error.message);
     }
+  }
+
+  async uploadPhotoProject(id: UUID, file: any) {
+    await this.findProjectById(id);
+
+    const urlProjectPhoto = await this.awsService.uploadFile(file, id);
+
+    const updateProjectDto: UpdateProjectDto = {};
+
+    updateProjectDto.urlPhoto = urlProjectPhoto.url;
+
+    await this.updateProject(id, updateProjectDto);
+
+    return this.findProjectById(id);
   }
 }
