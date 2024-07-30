@@ -8,9 +8,11 @@ import { UUID } from 'crypto';
 export class UpdateProjectDto extends PartialType(CreateProjectDto) {
   readonly title?: string;
   readonly description?: string;
+  urlPhoto?: string;
   readonly status?: ProjectStatus;
   readonly lead?: User;
   // readonly lead?: string;
-  readonly teams?: Team[];
+  readonly teamsId?: UUID[];
+  teams?: Team[];
   readonly finished_at?: Date;
 }

@@ -31,8 +31,14 @@ export class Project {
   })
   status: ProjectStatus;
 
+  @Column('text', { nullable: true })
+  urlPhoto?: string;
+
   @Column('date')
   created_at: Date;
+
+  @Column('date')
+  finished_at: Date;
 
   @ManyToOne(() => User, (user) => user.projects, { eager: false })
   @JoinTable()
@@ -41,7 +47,4 @@ export class Project {
   @ManyToMany(() => Team, (team) => team.id, { eager: false })
   @JoinTable()
   teams: Team[]; //Teams[]
-
-  @Column('date')
-  finished_at: Date;
 }

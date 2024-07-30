@@ -19,6 +19,8 @@ export class CreateProjectDto {
   @IsString()
   readonly description: string;
 
+  urlPhoto: string;
+
   @IsNotEmpty()
   @IsString()
   readonly status: ProjectStatus;

@@ -8,6 +8,8 @@ import {
   Delete,
   UsePipes,
   ValidationPipe,
+  UseInterceptors,
+  UploadedFile,
 } from '@nestjs/common';
 import { ProjectService } from './project.service';
 import { CreateProjectDto } from './dto/create-project.dto';
@@ -15,15 +17,27 @@ import { UpdateProjectDto } from './dto/update-project.dto';
 import { UUID } from 'crypto';
 import { ProjectStatusValidation } from './pipes/project-status-validation.pipe';
 import { Project } from './entities/project.entity';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { AwsService } from 'src/aws/aws.service';
 
 @Controller('project')
 export class ProjectController {
-  constructor(private readonly projectService: ProjectService) {}
+  constructor(
+    private readonly projectService: ProjectService,
+
+    private awsService: AwsService,
+  ) {}
 
   @Post()
   @UsePipes(ValidationPipe)
-  create(@Body(ProjectStatusValidation) createProjectDto: CreateProjectDto) {
-    return this.projectService.createProject(createProjectDto);
+  @UseInterceptors(FileInterceptor('file'))
+  create(
+    @Body(ProjectStatusValidation)
+    createProjectDto: CreateProjectDto,
+
+    @UploadedFile() file,
+  ) {
+    return this.projectService.createProject(createProjectDto, file);
   }
 
   @Get()
@@ -47,5 +61,21 @@ export class ProjectController {
   @Delete(':id')
   deleteProject(@Param('id') id: UUID) {
     return this.projectService.deleteProject(id);
+  }
+
+  @Post('/:id/upload')
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadFile(@UploadedFile() file, @Param('id') id: UUID) {
+    await this.projectService.findProjectById(id);
+
+    const urlProjectPhoto = await this.awsService.uploadFile(file, id);
+
+    const updateProjectDto: UpdateProjectDto = {};
+
+    updateProjectDto.urlPhoto = urlProjectPhoto.url;
+
+    await this.projectService.updateProject(id, updateProjectDto);
+
+    return this.projectService.findProjectById(id);
   }
 }
