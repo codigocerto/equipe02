@@ -30,8 +30,14 @@ export class ProjectController {
 
   @Post()
   @UsePipes(ValidationPipe)
-  create(@Body(ProjectStatusValidation) createProjectDto: CreateProjectDto) {
-    return this.projectService.createProject(createProjectDto);
+  @UseInterceptors(FileInterceptor('file'))
+  create(
+    @Body(ProjectStatusValidation)
+    createProjectDto: CreateProjectDto,
+
+    @UploadedFile() file,
+  ) {
+    return this.projectService.createProject(createProjectDto, file);
   }
 
   @Get()
@@ -71,27 +77,5 @@ export class ProjectController {
     await this.projectService.updateProject(id, updateProjectDto);
 
     return this.projectService.findProjectById(id);
-    // updatePlayerDTO. = urlPlayerPhoto.url;
-    // const playerFound = await lastValueFrom(
-    //   this.clientAdminBackend.send('get-players-by-id', id),
-    // );
-
-    // if (!playerFound) {
-    //   throw new NotFoundException('Player not found');
-    // }
-
-    // const urlPlayerPhoto = await this.awsService.uploadFile(file, id);
-
-    // const updatePlayerDTO: UpdatePlayerDTO = {};
-    // updatePlayerDTO.urlPlayerPhoto = urlPlayerPhoto.url;
-
-    // await this.clientAdminBackend.emit('update-player', {
-    //   id,
-    //   updatePlayerDTO,
-    // });
-
-    // return this.clientAdminBackend.send('get-players-by-id', id);
-
-    // return urlPhoto;
   }
 }

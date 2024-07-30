@@ -18,9 +18,8 @@ export class CreateProjectDto {
   @IsNotEmpty()
   @IsString()
   readonly description: string;
-  @IsNotEmpty()
-  @IsString()
-  readonly urlPhoto: string;
+
+  urlPhoto: string;
 
   @IsNotEmpty()
   @IsString()

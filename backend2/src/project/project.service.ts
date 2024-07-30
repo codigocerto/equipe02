@@ -13,6 +13,7 @@ import { UUID } from 'crypto';
 import validator from 'validator';
 import { UsersService } from 'src/users/users.service';
 import { TeamsService } from 'src/teams/teams.service';
+import { AwsService } from 'src/aws/aws.service';
 
 @Injectable()
 export class ProjectService {
@@ -21,25 +22,36 @@ export class ProjectService {
     private projectRepository: Repository<Project>,
     private readonly usersService: UsersService,
     private readonly teamsService: TeamsService,
+    private readonly awsService: AwsService,
   ) {}
 
-  async createProject(createProjectDto: CreateProjectDto) {
+  async createProject(createProjectDto: CreateProjectDto, file: any) {
     try {
+      console.log(createProjectDto);
+
       const userLead = await this.usersService.getUserById(
         createProjectDto.leadId,
       );
 
-      const newProject = createProjectDto;
-      newProject.lead = userLead;
+      createProjectDto.lead = userLead;
 
-      newProject.teams = [];
-      newProject.teams = await Promise.all(
-        newProject.teamsId.map(async (id) => {
+      createProjectDto.teams = [];
+      createProjectDto.teams = await Promise.all(
+        createProjectDto.teamsId.map(async (id) => {
           return this.teamsService.getTeamById(id);
         }),
       );
+      const newProject = await this.projectRepository.save(createProjectDto);
+      console.log(newProject.id);
+      const urlProjectPhoto = await this.awsService.uploadFile(
+        file,
+        newProject.id,
+      );
 
-      return await this.projectRepository.save(newProject);
+      newProject.urlPhoto = urlProjectPhoto.url;
+
+      await this.projectRepository.save(newProject);
+      return newProject;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -84,26 +96,6 @@ export class ProjectService {
     }
   }
 
-  // async updateProject(id: UUID, updateProjectDto: UpdateProjectDto) {
-  //   // : Promise<Project>
-  //   try {
-  //     const project = await this.findProjectById(id);
-  //     console.log(project);
-
-  //     const teams = await Promise.all(
-  //       updateProjectDto.teamsId.map(async (id) => {
-  //         return this.teamsService.getTeamById(id);
-  //       }),
-  //     );
-
-  //     project.teams = [...teams];
-
-  //     const newP = await this.projectRepository.save(project);
-  //     return newP;
-  //   } catch (error) {
-  //     throw new BadRequestException(error.message);
-  //   }
-  // }
   async updateProject(id: UUID, updateProjectDto: UpdateProjectDto) {
     try {
       const project = await this.findProjectById(id);
@@ -145,5 +137,19 @@ export class ProjectService {
     } catch (error) {
       throw new BadRequestException(error.message);
     }
+  }
+
+  async uploadPhotoProject(id: UUID, file: any) {
+    await this.findProjectById(id);
+
+    const urlProjectPhoto = await this.awsService.uploadFile(file, id);
+
+    const updateProjectDto: UpdateProjectDto = {};
+
+    updateProjectDto.urlPhoto = urlProjectPhoto.url;
+
+    await this.updateProject(id, updateProjectDto);
+
+    return this.findProjectById(id);
   }
 }
