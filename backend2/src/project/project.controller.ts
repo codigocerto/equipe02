@@ -19,8 +19,9 @@ import { ProjectStatusValidation } from './pipes/project-status-validation.pipe'
 import { Project } from './entities/project.entity';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AwsService } from 'src/aws/aws.service';
+import { ProjectStatus } from './enums/project-status.enum';
 
-@Controller('project')
+@Controller('projects')
 export class ProjectController {
   constructor(
     private readonly projectService: ProjectService,
@@ -34,7 +35,6 @@ export class ProjectController {
   create(
     @Body(ProjectStatusValidation)
     createProjectDto: CreateProjectDto,
-
     @UploadedFile() file,
   ) {
     return this.projectService.createProject(createProjectDto, file);
