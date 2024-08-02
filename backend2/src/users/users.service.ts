@@ -7,9 +7,9 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
 
 import { InjectRepository } from '@nestjs/typeorm';
-// import { User } from './entities/user/user.entity';
 import { Repository } from 'typeorm';
 import { UUID } from 'crypto';
 import { User } from './entities/user.entity';
@@ -31,6 +31,11 @@ export class UsersService {
       if (checkEmailUser) throw new ConflictException('Usuário já cadastrado!');
 
       const user = this.userRepository.create(createUserDto);
+
+      const salt = await bcrypt.genSalt();
+      const passwordHash = await bcrypt.hash(user.password, salt);
+      user.password = passwordHash;
+
       const savedUser = await this.userRepository.save(user);
 
       return plainToClass(User, savedUser);
