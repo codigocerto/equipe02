@@ -1,88 +1,55 @@
 .section {
   text-align: center;
-  padding: 40px 20px;
+  padding: 70px;
   background-color: var(--gray-950);
-  color: var(--gray-100);
+  color: var(--text-color-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 0;
 }
 
 .imageContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px; /* Ajustado para um espaçamento um pouco maior entre a imagem e o texto */
+  margin-bottom: 27px; /* Gap entre a imagem e o título */
 }
 
 .image {
+  width: 1120px;
+  height: 191px;
+  max-width: 100%;
   height: auto;
-  margin-bottom: 10px; /* Espaçamento entre a imagem e o título */
+  margin-bottom: 37px; /* Gap entre a imagem e o texto */
 }
 
 .title {
-  font-family: "Inter", sans-serif; /* Fonte Inter para o título */
-  font-size: 2.5rem; /* Tamanho da fonte para o título */
-  font-weight: 700; /* Peso da fonte do título */
-  line-height: 58.09px; /* Altura da linha do título */
-  margin-bottom: 20px; /* Espaçamento abaixo do título */
-  max-width: 1120px; /* Largura máxima do título */
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58.09px;
+  margin-bottom: 1px; /* Gap entre o título e o texto */
+  max-width: 1120px;
+  opacity: 1;
+  color: var(--text-color-primary);
+  text-align: center;
 }
 
 .textContainer {
-  max-width: 600px; /* largura máxima para os textos */
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 600px;
+  width: 80%;
+  opacity: 1;
+  margin: 0 auto; /* Centraliza o texto */
 }
 
 .paragraph {
-  max-width: 473px; /* largura do texto */
-  font-family: "Noto Sans", sans-serif; /* Fonte Noto Sans para os parágrafos */
-  font-size: 20px; /* Tamanho da fonte para os parágrafos */
-  font-weight: 400; /* Peso da fonte dos parágrafos */
-  line-height: 27.24px; /* Altura da linha dos parágrafos */
-  text-align: center; /* Alinha os parágrafos centralmente */
-  color: var(--gray-100); /* Cor de fundo para os parágrafos */
-  padding: 10px; /* Adiciona um padding interno para os parágrafos */
-  margin-bottom: 50px; /* Espaçamento abaixo dos parágrafos */
-}
-
-@media (max-width: 1140px) {
-  .image {
-    width: 800px;
-  }
-}
-
-@media (max-width: 880px) {
-  .image {
-    width: 600px;
-  }
-}
-
-@media (max-width: 620px) {
-  .image {
-    width: 450px;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .paragraph {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 470px) {
-  .image {
-    width: 350px;
-  }
-
-  .title {
-    font-size: 1.6rem;
-  }
-
-  .paragraph {
-    font-size: 13px;
-  }
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27.24px;
+  text-align: center;
+  color: var(--text-color-primary);
+  padding: 10px;
+  margin-bottom: 20px;
 }
