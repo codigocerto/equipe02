@@ -1,31 +1,18 @@
-
-import { Controller, Post, Body, HttpException } from '@nestjs/common';
+import { Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthPayloadDto } from './dto/auth.dto';
 
-@Controller()
+@Controller() // Adicione um prefixo ao controlador
 export class AuthController {
-
   constructor(private authService: AuthService) {}
 
   @Post('login')
-  async login(@Body() authPayload:AuthPayloadDto) {
-    
+  async login(@Body() { email, password }: AuthPayloadDto) {
     try {
-      
-    const user = this.authService.generateJwtToken(authPayload)
-  
-    if(!user) throw new HttpException('Invalid Credentials', 401)
-
-     
-
-      return user;
-
+      const result = await this.authService.validateUser(email, password);
+      return result; // O retorno será um objeto contendo o token e informações do usuário
     } catch (error) {
-
-      console.log(error)
+      throw new HttpException(error.message, HttpStatus.UNAUTHORIZED); // Usando HttpException para lançar erros
     }
   }
 }
-
-

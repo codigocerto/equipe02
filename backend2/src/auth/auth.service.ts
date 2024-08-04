@@ -1,27 +1,36 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { AuthPayloadDto } from './dto/auth.dto';
-
+import { UsersService } from 'src/users/users.service';
+import { User } from 'src/users/entities/user.entity';
 
 
 @Injectable()
 export class AuthService {
+  constructor(private jwtService: JwtService, private userService: UsersService) {}
 
-  constructor( private jwtService: JwtService) {}
+  async validateUser(email: string, password: string): Promise<{ token: string, user: User } | null> {
+    const user = await this.userService.findByEmail(email);
 
-  // Gera um token JWT e retorna um objeto JSON contendo o token
-  async generateJwtToken(authPayload: AuthPayloadDto): Promise<{ token: string ,email:string}> {
+    if (!user) {
+      throw new UnauthorizedException('Usuário não encontrado');
+    }
 
-    const payload = { email: authPayload.email, password: authPayload.password };
+    // Use verificar a senha
     
-    // Gera o token usando o JwtService
+    if( password !== user.password){
+      throw new UnauthorizedException('Senha inválida');
+    }
+
+    // Se o usuário for válido, gera o token
+    return this.generateJwtToken(user.email, user); // Passa também o usuário
+  }
+
+  private generateJwtToken(email: string, user: User): { token: string, user: User } {
+    const payload = { email: email, sub: user.id }; // Apenas o necessário
     const token = this.jwtService.sign(payload);
 
-    // Em vez de retornar apenas o token, retornamos um objeto JSON
-    return { token, email: authPayload.email };
-    
-  
+    return { token, user }; // Retorna o token e o objeto usuário
   }
 }
-
 
