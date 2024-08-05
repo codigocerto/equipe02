@@ -40,9 +40,9 @@ export class CreateProjectDto {
 
   @IsNotEmpty()
   @IsDateString()
-  readonly finished_at: Date;
+  readonly finishedAt: Date;
 
   @IsDateString()
   @IsNotEmpty()
-  readonly created_at: Date;
+  readonly createdAt: Date;
 }
