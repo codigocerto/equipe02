@@ -14,6 +14,7 @@ import validator from 'validator';
 import { UsersService } from 'src/users/users.service';
 import { TeamsService } from 'src/teams/teams.service';
 import { AwsService } from 'src/aws/aws.service';
+import { ProjectStatus } from './enums/project-status.enum';
 
 @Injectable()
 export class ProjectService {

@@ -23,6 +23,7 @@ export class User {
   @Column({
     type: 'enum',
     enum: UserRoles,
+    nullable: true,
   })
   role: UserRoles;
 
@@ -33,20 +34,15 @@ export class User {
   @Exclude()
   password: string;
 
-  @Column('text', { unique: true })
+  @Column('text', { unique: true, default: '' })
   github?: string;
 
-  @Column('text', { unique: true })
+  @Column('text', { unique: true, default: '' })
   linkedin?: string;
 
-  @Column('text') // { unique: true })
+  @Column('text', { default: '' }) // { unique: true })
   website?: string;
 
-  // @OneToMany(() => Project, (project) => project.lead)
-  // projects?: Project[];
-
-  // @ManyToMany(() => Team, (team) => team.id, { eager: true })
-  // teams?: Team[];
   @OneToMany(() => Project, (project) => project.lead)
   projects?: Project[];
 

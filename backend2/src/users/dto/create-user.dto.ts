@@ -17,12 +17,6 @@ export class CreateUserDto {
   readonly username: string;
 
   @ApiProperty({
-    example: 'Admin',
-    description: 'Tipo de usuário, associado a suas funções na plataforma',
-  })
-  readonly role: UserRoles;
-
-  @ApiProperty({
     example: 'email@email.com',
     description: 'Email que será utilizado para login pelo usuário',
   })
@@ -33,24 +27,29 @@ export class CreateUserDto {
     description: 'Senha utilizada para login na plataforma',
   })
   password: string;
+  // @ApiProperty({
+  //   example: 'Admin',
+  //   description: 'Tipo de usuário, associado a suas funções na plataforma',
+  // })
+  // readonly role?: UserRoles;
 
-  @ApiProperty({
-    example: 'github.com/JoãoSilva',
-    description: 'Link do github do usuário',
-  })
-  readonly github?: string;
+  // @ApiProperty({
+  //   example: 'github.com/JoãoSilva',
+  //   description: 'Link do github do usuário',
+  // })
+  // readonly github?: string;
 
-  @ApiProperty({
-    example: 'linkedin.com/JoaoSilva',
-    description: 'Link do perfil do linkedin do usuário',
-  })
-  readonly linkedin?: string;
+  // @ApiProperty({
+  //   example: 'linkedin.com/JoaoSilva',
+  //   description: 'Link do perfil do linkedin do usuário',
+  // })
+  // readonly linkedin?: string;
 
-  @ApiProperty({
-    example: 'www.sitedojoaosilva.com',
-    description: 'Link do site do usuário',
-  })
-  readonly website?: string;
+  // @ApiProperty({
+  //   example: 'www.sitedojoaosilva.com',
+  //   description: 'Link do site do usuário',
+  // })
+  // readonly website?: string;
 
   // constructor(
   //   id: UUID,

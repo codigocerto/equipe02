@@ -1,5 +1,5 @@
 export enum ProjectStatus {
-  PENDING = 'Pending',
-  ONGOING = 'On going',
-  FINISHED = 'Finished',
+  PENDING = 'PENDING',
+  ONGOING = 'ON_GOING',
+  FINISHED = 'FINISHED',
 }

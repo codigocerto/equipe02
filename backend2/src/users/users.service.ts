@@ -7,9 +7,9 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
 
 import { InjectRepository } from '@nestjs/typeorm';
-// import { User } from './entities/user/user.entity';
 import { Repository } from 'typeorm';
 import { UUID } from 'crypto';
 import { User } from './entities/user.entity';
@@ -28,22 +28,14 @@ export class UsersService {
     try {
       const checkEmailUser = await this.findByEmail(createUserDto.email);
 
-      const checkLinkedinUser = await this.userRepository.findOne({
-        where: { linkedin: createUserDto.linkedin },
-      });
-
-      const checkGitHubUser = await this.userRepository.findOne({
-        where: { github: createUserDto.github },
-      });
-
       if (checkEmailUser) throw new ConflictException('Usuário já cadastrado!');
 
-      if (checkLinkedinUser)
-        throw new ConflictException('Linkedin já cadastrado!');
-
-      if (checkGitHubUser) throw new ConflictException('GitHub já cadastrado!');
-
       const user = this.userRepository.create(createUserDto);
+
+      const salt = await bcrypt.genSalt();
+      const passwordHash = await bcrypt.hash(user.password, salt);
+      user.password = passwordHash;
+
       const savedUser = await this.userRepository.save(user);
 
       return plainToClass(User, savedUser);
@@ -87,9 +79,25 @@ export class UsersService {
     }
   }
 
-  async update(id: UUID, updateUserDto: UpdateUserDto): Promise<User> {
+  async updateUser(id: UUID, updateUserDto: UpdateUserDto): Promise<User> {
     try {
-      await this.getUserById(id);
+      const user = await this.getUserById(id);
+      // const checkEmailUser = await this.findByEmail(user.email);
+
+      const checkLinkedinUser = await this.userRepository.findOne({
+        where: { linkedin: updateUserDto.linkedin },
+      });
+
+      const checkGitHubUser = await this.userRepository.findOne({
+        where: { github: updateUserDto.github },
+      });
+
+      // if (checkEmailUser) throw new ConflictException('Usuário já cadastrado!');
+
+      if (checkLinkedinUser)
+        throw new ConflictException('Linkedin já cadastrado!');
+
+      if (checkGitHubUser) throw new ConflictException('GitHub já cadastrado!');
 
       await this.userRepository.update(id, updateUserDto);
 
