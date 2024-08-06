@@ -82,23 +82,26 @@ export class UsersService {
   async updateUser(id: UUID, updateUserDto: UpdateUserDto): Promise<User> {
     try {
       const user = await this.getUserById(id);
-      // const checkEmailUser = await this.findByEmail(user.email);
 
-      const checkLinkedinUser = await this.userRepository.findOne({
-        where: { linkedin: updateUserDto.linkedin },
-      });
+      if (updateUserDto.linkedin) {
+        const checkLinkedinUser = await this.userRepository.findOne({
+          where: { linkedin: updateUserDto.linkedin },
+        });
 
-      const checkGitHubUser = await this.userRepository.findOne({
-        where: { github: updateUserDto.github },
-      });
+        if (checkLinkedinUser)
+          throw new ConflictException('Linkedin já cadastrado!');
+      }
 
-      // if (checkEmailUser) throw new ConflictException('Usuário já cadastrado!');
+      if (updateUserDto.github) {
+        const checkGitHubUser = await this.userRepository.findOne({
+          where: { github: updateUserDto.github },
+        });
 
-      if (checkLinkedinUser)
-        throw new ConflictException('Linkedin já cadastrado!');
+        if (checkGitHubUser)
+          throw new ConflictException('GitHub já cadastrado!');
+      }
 
-      if (checkGitHubUser) throw new ConflictException('GitHub já cadastrado!');
-
+      console.log(updateUserDto);
       await this.userRepository.update(id, updateUserDto);
 
       return await this.getUserById(id);

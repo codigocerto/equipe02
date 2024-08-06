@@ -11,13 +11,14 @@ import { TeamsService } from './teams.service';
 import { CreateTeamDto } from './dto/create-team.dto';
 import { UpdateTeamDto } from './dto/update-team.dto';
 import { UUID } from 'crypto';
+import { TeamStacksValidation } from './pipes/team-stacks-validation.pipe';
 
 @Controller('teams')
 export class TeamsController {
   constructor(private readonly teamsService: TeamsService) {}
 
   @Post()
-  async createTeam(@Body() createTeamDto: CreateTeamDto) {
+  async createTeam(@Body(TeamStacksValidation) createTeamDto: CreateTeamDto) {
     return await this.teamsService.createTeam(createTeamDto);
   }
 
