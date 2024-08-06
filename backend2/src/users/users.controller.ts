@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
  
 
 } from '@nestjs/common';
@@ -16,6 +17,7 @@ import { UUID } from 'crypto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserRolesValidation } from './pipes/user-roles-validation.pipe';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 
 
@@ -47,6 +49,7 @@ export class UsersController {
     return this.usersService.updateUser(id, updateUserDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   remove(@Param('id') id: UUID) {
     return this.usersService.remove(id);

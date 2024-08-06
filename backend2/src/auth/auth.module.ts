@@ -1,4 +1,6 @@
-import { forwardRef, Module } from '@nestjs/common';
+
+
+import { Module, forwardRef } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -6,8 +8,7 @@ import { User } from 'src/users/entities/user.entity';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller'; 
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { JwtAuthGuard } from './jwt-auth.guard';
-import { JwtStrategy } from './strategy/jwt.strategy';
+import { JwtStrategy } from '../auth/strategy/jwt.strategy';
 import { UsersModule } from 'src/users/users.module';
 
 @Module({
@@ -22,7 +23,7 @@ import { UsersModule } from 'src/users/users.module';
       }),
       inject: [ConfigService],
     }),
-    forwardRef(() => UsersModule), // Use 'forwardRef' para evitar dependências circulares
+    forwardRef(() => UsersModule), 
   ],
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],

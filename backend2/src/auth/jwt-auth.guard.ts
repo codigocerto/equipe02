@@ -1,12 +1,13 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
-  constructor(private jwtService: JwtService) {}
+  constructor(private jwtService: JwtService, private readonly configService: ConfigService,) {}
 
-  canActivate(context: ExecutionContext): boolean {
+  async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest<Request>();
     const token = this.extractTokenFromHeader(request);
     if (!token) {
@@ -15,10 +16,15 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     try {
-      const payload = this.jwtService.verify(token);
+      
+      const payload = await this.jwtService.verifyAsync(token, {
+        secret: this.configService.get<string>('JWT_SECRET'),
+      });
       // Attach the payload to the request object
+      
       request['user'] = payload;
     } catch (e) {
+      console.log(token)
       console.log('Token verification failed', e);
       return false;
     }
@@ -30,3 +36,4 @@ export class JwtAuthGuard implements CanActivate {
     return type === 'Bearer' ? token : undefined;
   }
 }
+

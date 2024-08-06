@@ -30,9 +30,9 @@ export class AuthService {
   }
 
   public generateJwtToken(email: string, user: User): { token: string, user: User } {
-    const payload = { email: email, sub: user.id }; // Apenas o necessário
+    const payload = { email: email,secret: process.env.JWT_SECRET}; // Apenas o necessário
     
-    const token = this.jwtService.sign(payload);
+    const token =  this.jwtService.sign(payload);
     return { token, user }; // Retorna o token
   }
 }
