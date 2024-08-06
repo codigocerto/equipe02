@@ -1,25 +1,25 @@
-// src/auth/jwt-auth.guard.ts
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
-import { Reflector } from '@nestjs/core';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
-  constructor(private jwtService: JwtService, private reflector: Reflector) {}
+  constructor(private jwtService: JwtService) {}
 
   canActivate(context: ExecutionContext): boolean {
     const request = context.switchToHttp().getRequest<Request>();
     const token = this.extractTokenFromHeader(request);
     if (!token) {
+      console.log('No token found');
       return false;
     }
 
     try {
       const payload = this.jwtService.verify(token);
-      // Anexa o payload ao objeto de solicitação para que os controladores possam acessá-lo
+      // Attach the payload to the request object
       request['user'] = payload;
-    } catch {
+    } catch (e) {
+      console.log('Token verification failed', e);
       return false;
     }
     return true;

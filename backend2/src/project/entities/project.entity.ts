@@ -34,17 +34,21 @@ export class Project {
   @Column('text', { nullable: true })
   urlPhoto?: string;
 
-  @Column('date')
-  created_at: Date;
+  @Column('date', { nullable: true })
+  createdAt: Date;
 
-  @Column('date')
-  finished_at: Date;
+  @Column('date', { nullable: true })
+  finishedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.projects, { eager: false })
+  @ManyToOne(() => User, (user) => user.projects, {
+    eager: false,
+  })
   @JoinTable()
   lead: User;
 
-  @ManyToMany(() => Team, (team) => team.id, { eager: false })
+  @ManyToMany(() => Team, (team) => team.id, {
+    eager: false,
+  })
   @JoinTable()
   teams: Team[]; //Teams[]
 }
