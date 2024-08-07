@@ -34,7 +34,7 @@ export class User {
     nullable: true,
     array: true,
   })
-  skills?: UserRoles[];
+  skills?: UserSkills[];
 
   @Column('text', { unique: true })
   email: string;

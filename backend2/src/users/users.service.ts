@@ -101,7 +101,15 @@ export class UsersService {
           throw new ConflictException('GitHub já cadastrado!');
       }
 
-      console.log(updateUserDto);
+      if (updateUserDto.skills) {
+        const currentSkills = user.skills || [];
+        console.log(currentSkills);
+        const updatedSkills = [
+          ...new Set([...currentSkills, ...updateUserDto.skills]),
+        ];
+
+        updateUserDto.skills = updatedSkills;
+      }
       await this.userRepository.update(id, updateUserDto);
 
       return await this.getUserById(id);

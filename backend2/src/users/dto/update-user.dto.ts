@@ -7,7 +7,7 @@ export class UpdateUserDto {
   username?: string;
   password?: string;
   role?: UserRoles;
-  // skills?: UserSkills[] | UserSkills;
+  skills?: UserSkills[];
   github?: string;
   linkedin?: string;
   website?: string;
