@@ -11,6 +11,7 @@ import {
 import { UserRoles } from '../enums/user-role.enum';
 import { Project } from 'src/project/entities/project.entity';
 import { Team } from 'src/teams/entities/team.entity';
+import { UserSkills } from '../enums/user-skills.enum';
 
 @Entity('user')
 export class User {
@@ -26,6 +27,14 @@ export class User {
     nullable: true,
   })
   role: UserRoles;
+
+  @Column({
+    type: 'enum',
+    enum: UserSkills,
+    nullable: true,
+    array: true,
+  })
+  skills?: UserSkills[];
 
   @Column('text', { unique: true })
   email: string;

@@ -22,6 +22,7 @@ export class Team {
   @Column({
     type: 'enum',
     enum: TeamStack,
+    nullable: true,
   })
   team_stack: TeamStack;
 

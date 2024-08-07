@@ -17,11 +17,13 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import validator from 'validator';
 import { plainToClass } from 'class-transformer';
+import { AuthService } from 'src/auth/auth.service';
 @Injectable()
 export class UsersService {
   logger = new Logger(UsersService.name);
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
+    private readonly authService: AuthService
   ) {}
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
@@ -37,7 +39,7 @@ export class UsersService {
       user.password = passwordHash;
 
       const savedUser = await this.userRepository.save(user);
-
+      const { token } = await this.authService.generateJwtToken(savedUser.email, savedUser);
       return plainToClass(User, savedUser);
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -82,23 +84,34 @@ export class UsersService {
   async updateUser(id: UUID, updateUserDto: UpdateUserDto): Promise<User> {
     try {
       const user = await this.getUserById(id);
-      // const checkEmailUser = await this.findByEmail(user.email);
 
-      const checkLinkedinUser = await this.userRepository.findOne({
-        where: { linkedin: updateUserDto.linkedin },
-      });
+      if (updateUserDto.linkedin) {
+        const checkLinkedinUser = await this.userRepository.findOne({
+          where: { linkedin: updateUserDto.linkedin },
+        });
 
-      const checkGitHubUser = await this.userRepository.findOne({
-        where: { github: updateUserDto.github },
-      });
+        if (checkLinkedinUser)
+          throw new ConflictException('Linkedin já cadastrado!');
+      }
 
-      // if (checkEmailUser) throw new ConflictException('Usuário já cadastrado!');
+      if (updateUserDto.github) {
+        const checkGitHubUser = await this.userRepository.findOne({
+          where: { github: updateUserDto.github },
+        });
 
-      if (checkLinkedinUser)
-        throw new ConflictException('Linkedin já cadastrado!');
+        if (checkGitHubUser)
+          throw new ConflictException('GitHub já cadastrado!');
+      }
 
-      if (checkGitHubUser) throw new ConflictException('GitHub já cadastrado!');
+      if (updateUserDto.skills) {
+        const currentSkills = user.skills || [];
+        console.log(currentSkills);
+        const updatedSkills = [
+          ...new Set([...currentSkills, ...updateUserDto.skills]),
+        ];
 
+        updateUserDto.skills = updatedSkills;
+      }
       await this.userRepository.update(id, updateUserDto);
 
       return await this.getUserById(id);

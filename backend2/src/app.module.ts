@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { TeamsModule } from './teams/teams.module';
 import { Project } from './project/entities/project.entity';
 import { User } from './users/entities/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { User } from './users/entities/user.entity';
     }),
     UsersModule,
     TeamsModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
