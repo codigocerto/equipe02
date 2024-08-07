@@ -17,11 +17,13 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import validator from 'validator';
 import { plainToClass } from 'class-transformer';
+import { AuthService } from 'src/auth/auth.service';
 @Injectable()
 export class UsersService {
   logger = new Logger(UsersService.name);
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
+    private readonly authService: AuthService
   ) {}
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
@@ -37,7 +39,7 @@ export class UsersService {
       user.password = passwordHash;
 
       const savedUser = await this.userRepository.save(user);
-
+      const { token } = await this.authService.generateJwtToken(savedUser.email, savedUser);
       return plainToClass(User, savedUser);
     } catch (error) {
       throw new BadRequestException(error.message);
